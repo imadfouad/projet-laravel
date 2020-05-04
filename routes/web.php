@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+use App\Commande;
+use App\Article;
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//les routes de relations n:n
+//les articles dans une commande
+Route::get('/find/{id}/commande',function($id){
+	$pro = Commande::find($id)->article;
+	return $pro;
+})
