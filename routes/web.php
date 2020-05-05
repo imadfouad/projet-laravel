@@ -31,4 +31,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/find/{id}/commande',function($id){
 	$pro = Commande::find($id)->article;
 	return $pro;
-})
+});
