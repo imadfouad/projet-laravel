@@ -17,7 +17,7 @@
     <div class="search-box">
         <i class="fa fa-bars"  id="menu-btn" onclick="openmenu()"></i>
         <i class="fa fa-times"  id="close-btn" onclick="closemenu()"></i>
-        <img src="https://www.pngkit.com/png/detail/126-1261287_wide-flat-screen-laptop-vector-laptop-logo.png" class="logo">
+        <img src="https://i.ibb.co/86zL9J2/icone-ordinateur.png" class="logo">
         <input type="text" class="form-control">
         <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
 
@@ -42,34 +42,29 @@
 <section class="header">
     <div class="side-menu" id="side-menu">
         <ul>
-            <li> Informatique  <i class="fa fa-angle-right"></i>
+            <li><a href="#">Informatique</a>   <i class="fa fa-angle-right"></i>
                 <ul>
                     <li>Computers </li>
                     <li> Mobiles</li>
                     <li>TV</li>
                 </ul>
             </li>
-            <li> Accessories <i class="fa fa-angle-right" ></i>
+            <li> <a href="#">Multimédia</a><i class="fa fa-angle-right" ></i>
                 <ul>
-                    <li>Samsung </li>
-                    <li>Iphone </li>
+                    <li>Imprimantes </li>
+                    <li>Appareils Photos</li>
+                    <li>Casques-Microphones</li>
 
                 </ul>
             </li>
-            <li> Other<i class="fa fa-angle-right" ></i>
+            <li> <a href="#">Divers</a><i class="fa fa-angle-right" ></i>
                 <ul>
-                    <li>Consommables</li>
+                    <li>Consoles</li>
+                    <li>Accessoires Mobile</li>
 
                 </ul>
             </li>
 
-            <li> Video and Games<i class="fa fa-angle-right" ></i>
-                <ul>
-                    <li>Sub-menu3 </li>
-                    <li>Sub-menu3 </li>
-                    <li>Sub-menu3 </li>
-                </ul>
-            </li>
         </ul>
 
     </div>
@@ -112,7 +107,7 @@
 <!----------------------------featured-categories------------------------------------->
 <section class="featured-categories">
 
-    <h4 class="heading" id="heading" tabindex="-1">        Mobiles </h4> <hr>
+    <h4 class="heading" id="heading" tabindex="-1">        Informatique </h4> <hr>
 
     <div class="container">
         <div class="row">
@@ -128,9 +123,7 @@
                         <ul class="social">
                             <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
 
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
 
 
@@ -158,9 +151,7 @@
                         <ul class="social">
                             <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
 
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
 
 
@@ -191,9 +182,7 @@
                         <ul class="social">
                             <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
 
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
 
 
@@ -221,221 +210,10 @@
 
 
 
-    <h4 class="heading" id="heading3" tabindex="-1">        TV </h4> <hr>
-
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="">
-                            <img src="https://image.businessinsider.com/5df10d81fd9db229ba736a77?width=1100&format=jpeg&auto=webp" class="pro-1" >
-
-                        </a>
-                        <span class="product-trend-label">20% OFF</span>
-                        <ul class="social">
-                            <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
-                        </ul>
-
-
-                    </div>
-                    <div class="product-content">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <h3> Iphone 11</h3>
-                        <h5> 900$</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="">
-                            <img src="https://image.businessinsider.com/5df10d81fd9db229ba736a77?width=1100&format=jpeg&auto=webp" class="pro-1" >
-
-                        </a>
-                        <span class="product-trend-label">20% OFF</span>
-                        <ul class="social">
-                            <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
-                        </ul>
-
-
-                    </div>
-                    <div class="product-content">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <h3> Iphone 11</h3>
-                        <h5> 900$</h5>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="">
-                            <img src="https://image.businessinsider.com/5df10d81fd9db229ba736a77?width=1100&format=jpeg&auto=webp" class="pro-1" >
-
-                        </a>
-                        <span class="product-trend-label">20% OFF</span>
-                        <ul class="social">
-                            <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
-                        </ul>
-
-
-                    </div>
-                    <div class="product-content">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <h3> Iphone 11</h3>
-                        <h5> 900$</h5>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-        </div>
-    </div>
-
-
-
-    <!-----------------------third-section---------------------------->
-
-    <h4 class="heading" id="heading2" tabindex="-1">        Mobiles </h4> <hr>
-
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="">
-                            <img src="https://image.businessinsider.com/5df10d81fd9db229ba736a77?width=1100&format=jpeg&auto=webp" class="pro-1" >
-
-                        </a>
-                        <span class="product-trend-label">20% OFF</span>
-                        <ul class="social">
-                            <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
-                        </ul>
-
-
-                    </div>
-                    <div class="product-content">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <h3> Iphone 11</h3>
-                        <h5> 900$</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="">
-                            <img src="https://image.businessinsider.com/5df10d81fd9db229ba736a77?width=1100&format=jpeg&auto=webp" class="pro-1" >
-
-                        </a>
-                        <span class="product-trend-label">20% OFF</span>
-                        <ul class="social">
-                            <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
-                        </ul>
-
-
-                    </div>
-                    <div class="product-content">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <h3> Iphone 11</h3>
-                        <h5> 900$</h5>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="">
-                            <img src="https://image.businessinsider.com/5df10d81fd9db229ba736a77?width=1100&format=jpeg&auto=webp" class="pro-1" >
-
-                        </a>
-                        <span class="product-trend-label">20% OFF</span>
-                        <ul class="social">
-                            <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
-                        </ul>
-
-
-                    </div>
-                    <div class="product-content">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <h3> Iphone 11</h3>
-                        <h5> 900$</h5>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-        </div>
-    </div>
-
+    
     <!--------------------------Fourth-section------------------------------->
 
-    <h4 class="heading" id="heading4" tabindex="-1">        Accessories</h4> <hr>
+    <h4 class="heading" id="heading4" tabindex="-1">       Multimédia</h4> <hr>
 
     <div class="container">
         <div class="row">
@@ -451,9 +229,7 @@
                         <ul class="social">
                             <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
 
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
 
 
@@ -481,9 +257,7 @@
                         <ul class="social">
                             <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
 
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
 
 
@@ -514,9 +288,7 @@
                         <ul class="social">
                             <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
 
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
 
 
@@ -542,7 +314,7 @@
 
     <!----------------------------fifth-section----------------------->
 
-    <h4 class="heading" id="heading5" tabindex="-1">        Random </h4> <hr>
+    <h4 class="heading" id="heading5" tabindex="-1">        Divers </h4> <hr>
 
     <div class="container">
         <div class="row">
@@ -558,9 +330,7 @@
                         <ul class="social">
                             <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
 
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
 
 
@@ -588,9 +358,7 @@
                         <ul class="social">
                             <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
 
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
 
 
@@ -621,9 +389,7 @@
                         <ul class="social">
                             <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
 
-                            <li> <a href="" data-tip="Whishlight"><i class="fa fa-heart"></i></a></li>
-
-                            <li> <a href="" data-tip="Quick view"><i class="fa fa-search"></i></a></li>
+                            
                         </ul>
 
 

@@ -21,6 +21,8 @@ body{
 .logo{
     height: 40px;
     margin:5px 10px;
+    padding-left:15px;
+    padding-right: 25px;
 }
 .form-control {
     margin-top:9px;
