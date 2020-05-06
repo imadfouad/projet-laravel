@@ -12,10 +12,40 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style type="text/css">
+        
+        body {
+            background-image: url('https://blog.mindmarker.com/hubfs/coffee-1283672_1920.jpg');
+            background-size: 100%;
+        }
+        .colo1{
+            background-color: #f5f8fa;
+        }
+        .marg0{
+            padding-top: 2px;
+            margin: 0;
+        }
+
+        #logo{
+            height: 60px;
+                width: 45px;
+                margin: 0;
+                padding-bottom: 15px;
+                
+        }
+        .colo2{
+            background-color: #f8f8f8;
+        }
+        #colo2{
+            background-color: #f8f8f8;
+            padding-left: 350px;            
+        }
+
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top colo1">
             <div class="container">
                 <div class="navbar-header">
 
@@ -28,9 +58,10 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
+                    <a class="navbar-brand marg0" href="{{ url('/') }}">
+                        <!--{{ config('app.name', 'Laravel') }} -->
+                        <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
+                    </a> 
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
