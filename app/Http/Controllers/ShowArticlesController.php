@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Providers\Article;
 class ShowArticlesController extends Controller
 {
 
@@ -15,16 +15,5 @@ class ShowArticlesController extends Controller
         return view('ShowOneArticle');
 
     }
-    public function index2 (){
-        return view('Divers');
-
-    }
-    public function index3 (){
-        return view('multimedia');
-
-    }
-    public function index4 (){
-        return view('Informatique');
-
-    }
+    
 }

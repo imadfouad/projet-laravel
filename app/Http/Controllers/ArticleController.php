@@ -11,7 +11,12 @@ use Illuminate\Http\UploadedFile;
 class ArticleController extends Controller
 {
     public function index(){
+        $listinfo = Article::all()->where('categorie','informatique');
+        $listmulti = Article::all()->where('categorie','multimédia');
+        $listdiv = Article::all()->where('categorie','divers');
 
+        return view('Article.index',['articlesdiv' => $listdiv , 'articlesinf' => $listinfo , 
+            'articlesmulti' => $listmulti]);
     }
 
     public function create(){
@@ -22,6 +27,7 @@ class ArticleController extends Controller
 
     	$article = new Article();
 
+        $article->nom= $request->input('nom');
     	$article->prix= $request->input('prix');
     	$article->categorie= $request->input('categorie');
     	if($request->hasFile('photo')){
@@ -30,6 +36,8 @@ class ArticleController extends Controller
 
 
     	$article->save();
+
+        return redirect('articles');
 
     }
 
@@ -41,7 +49,16 @@ class ArticleController extends Controller
 
     }
 
-    public function destroy(Request $request , $id){
+    public function destroy(Request $request , $id_article){
     	
+        $article = Article::find($id_article);
+
+        $article->delete();
+        return redirect('articles');
+
+    }
+
+    public function show(){
+
     }
 }

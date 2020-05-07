@@ -42,14 +42,14 @@
 <section class="header">
     <div class="side-menu" id="side-menu">
         <ul>
-            <li><a href="/Informatique">Informatique</a>   <i class="fa fa-angle-right"></i>
+            <li><a href="/articles">Informatique</a>   <i class="fa fa-angle-right"></i>
                 <ul>
                     <li>Computers </li>
                     <li> Mobiles</li>
                     <li>TV</li>
                 </ul>
             </li>
-            <li> <a href="/multimedia">Multimédia</a><i class="fa fa-angle-right" ></i>
+            <li> <a href="/articles">Multimédia</a><i class="fa fa-angle-right" ></i>
                 <ul>
                     <li>Imprimantes </li>
                     <li>Appareils Photos</li>
@@ -57,16 +57,18 @@
 
                 </ul>
             </li>
-            <li> <a href="/Divers">Divers</a><i class="fa fa-angle-right" ></i>
+            <li> <a href="/articles">Divers</a><i class="fa fa-angle-right" ></i>
                 <ul>
                     <li>Consoles</li>
                     <li>Accessoires Mobile</li>
 
                 </ul>
             </li>
+            <br><br>
+
 
         </ul>
-
+     <a href="/articles/create" class="btn btn-info" >Créer Nouveau Produit ></a>
     </div>
 
     <div class="slider">

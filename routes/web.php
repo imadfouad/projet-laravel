@@ -21,15 +21,15 @@ use App\Article;
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/Cart','ShowArticlesController@index');
 Route::get('/ShowOneArticle','ShowArticlesController@index1');
-Route::get('/Divers','ShowArticlesController@index2');
-Route::get('/multimedia','ShowArticlesController@index3');
-Route::get('/Informatique','ShowArticlesController@index4');
+
+
 Route::get('articles','ArticleController@index');
 Route::get('articles/create','ArticleController@create');
 Route::post('articles','ArticleController@store');
-Route::delete('articles/{id}','ArticleController@destroy');
+Route::delete('articles/{id_article}','ArticleController@destroy');
 
 
 
