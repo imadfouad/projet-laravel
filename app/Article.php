@@ -8,6 +8,6 @@ class Article extends Model
 {
 	//la relation n:n
     public function commande(){
-    	return $this->belongsToMany(related:'App\Commande');
+    	return $this->belongsToMany('App\Commande');
     }
 }

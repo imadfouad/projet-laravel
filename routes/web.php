@@ -22,9 +22,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+Route::get('articles','ArticleController@index');
+Route::get('articles/create','ArticleController@create');
+Route::post('articles','ArticleController@store');
+Route::delete('articles/{id}','ArticleController@destroy');
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 //les routes de relations n:n
 //les articles dans une commande

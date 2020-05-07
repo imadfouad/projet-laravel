@@ -40,6 +40,10 @@
             background-color: #f8f8f8;
             padding-left: 350px;            
         }
+        .marg1{
+            margin-top: 30px;
+            margin-left: 420px;
+        }
 
     </style>
 </head>
