@@ -25,7 +25,7 @@
     <div class="menu-bar">
         <ul>
             @if (Route::has('login'))
-            <li> <a href=""><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Cart  </a></li>
+            <li> <a href="/Cart"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Cart  </a></li>
                 @if (Auth::check())
                     <a href="{{route('home')}}">Home</a>
 
@@ -42,14 +42,14 @@
 <section class="header">
     <div class="side-menu" id="side-menu">
         <ul>
-            <li><a href="#">Informatique</a>   <i class="fa fa-angle-right"></i>
+            <li><a href="/Informatique">Informatique</a>   <i class="fa fa-angle-right"></i>
                 <ul>
                     <li>Computers </li>
                     <li> Mobiles</li>
                     <li>TV</li>
                 </ul>
             </li>
-            <li> <a href="#">Multimédia</a><i class="fa fa-angle-right" ></i>
+            <li> <a href="/multimedia">Multimédia</a><i class="fa fa-angle-right" ></i>
                 <ul>
                     <li>Imprimantes </li>
                     <li>Appareils Photos</li>
@@ -57,7 +57,7 @@
 
                 </ul>
             </li>
-            <li> <a href="#">Divers</a><i class="fa fa-angle-right" ></i>
+            <li> <a href="/Divers">Divers</a><i class="fa fa-angle-right" ></i>
                 <ul>
                     <li>Consoles</li>
                     <li>Accessoires Mobile</li>
@@ -134,7 +134,7 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-half-o"></i>
-                        <h3> Iphone 11</h3>
+                      <a href="#" > <h3>Iphone 11</h3> </a>
                         <h5> 900$</h5>
                     </div>
                 </div>
@@ -206,7 +206,7 @@
     </div>
 
 
-    <!-----------------------Second-section---------------------------->
+
 
 
 
