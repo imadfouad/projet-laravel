@@ -99,7 +99,13 @@
                         {{ method_field('DELETE') }}
                         <input type="hidden" value="delete" name="">
                         <a href="" class="btn btn-info">Détails</a>
+
+                        @can('delete',$article)
+
                         <button type="submit" class="btn btn-danger">Supprimer</button>
+
+                        @endcan 
+
                     </form>
                 </div>
             </div>
@@ -141,13 +147,17 @@
                     <i class="fa fa-star-half-o"></i>
                     <h3> {{ $article->nom }}</h3>
                     <h5> {{$article->prix}} $</h5>
-                    <a href="" class="btn btn-info">Détails</a>
+                    
                     <form action="{{ url('articles/'.$article->id_article) }}" method="post">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                         <input type="hidden" value="delete" name="">
                         <a href="" class="btn btn-info">Détails</a>
+                        @can('delete',$article)
+
                         <button type="submit" class="btn btn-danger">Supprimer</button>
+
+                        @endcan 
                     </form>
                 </div>
             </div>
@@ -188,14 +198,18 @@
                     <i class="fa fa-star-half-o"></i>
                     <h3> {{ $article->nom }}</h3>
                     <h5> {{$article->prix}} $</h5>
-                    <a href="" class="btn btn-info">Détails</a>
+                    
 
                     <form action="{{ url('articles/'.$article->id_article) }}" method="post">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                         <input type="hidden" value="delete" name="">
                         <a href="" class="btn btn-info">Détails</a>
+                        @can('delete',$article)
+
                         <button type="submit" class="btn btn-danger">Supprimer</button>
+
+                        @endcan 
                     </form>
 
                 </div>

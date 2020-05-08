@@ -20,7 +20,13 @@ class ArticleController extends Controller
     }
 
     public function create(){
-    	return view('Article.create');
+        if(!Auth::check() || (!Auth::user()->is_admin && Auth::check()) ){   
+    	return view('Article.err');
+        }
+
+        elseif(Auth::user()->is_admin && Auth::check()){
+            return view('Article.create');
+        }
     }
 
     public function store(Request $request){
@@ -52,6 +58,8 @@ class ArticleController extends Controller
     public function destroy(Request $request , $id_article){
     	
         $article = Article::find($id_article);
+
+        $this->authorize('delete', $article);
 
         $article->delete();
         return redirect('articles');

@@ -14,7 +14,14 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 ">
+                                
+                                <a class="btn btn-info" href="{{ url('articles') }}">Retournez vers la page des articles</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
