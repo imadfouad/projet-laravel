@@ -6,7 +6,11 @@
     <link rel="stylesheet" href="css/test.index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style type="text/css">
+        body{
+            background-color: #e2e2e2;
+        }
         .marg0{
             padding-top: 2px;
             margin: 0;
@@ -21,7 +25,67 @@
         #imgprod{
             height: 250px;
             width: 250px;
-        }    
+        } 
+
+
+        .colo1{
+            background-color: #000f2f;
+            
+        }
+        .marg0{
+            padding-top: 2px;
+            margin: 0;
+        }
+
+        #logo{
+            height: 60px;
+                width: 45px;
+                margin: 0;
+                padding-bottom: 15px;
+                
+        }
+        .colo2{
+            background-color: #f7f1f1;
+        }
+        #colo2{
+            background-color: #f8f8f8;
+            padding-left: 350px;            
+        }
+        .marg1{
+            margin-top: 30px;
+            margin-left: 420px;
+        }
+        .b3{
+            padding-top: 2px;
+        }
+        #im1{
+            width: 100%;
+            height: 480px;
+        }
+        .cont{
+            padding-right: 120px;
+            padding-left: 120px;
+        }
+        #car1{
+            height: 170px;
+            
+        }
+        #car2{
+            height: 170px;
+        }
+        .products{
+            background-color: #1B484D;
+        }
+        .mrg2{
+            padding-top: 2px;
+            padding-bottom: 7px;
+        }
+        .feature-box{
+            opacity: ;
+        }
+        .cou1{
+            color: white;
+        } 
 
         }
     </style>
@@ -31,37 +95,70 @@
 
 </head>
 <body>
-<div class="top-nav-bar">
-    <div class="search-box">
-        <i class="fa fa-bars"  id="menu-btn" onclick="openmenu()"></i>
-        <i class="fa fa-times"  id="close-btn" onclick="closemenu()"></i>
-        <a class="navbar-brand marg0" href="{{ url('/') }}">
-                        
-                        <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
-        </a> 
-        <input type="text" class="form-control">
-        <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
+<nav class="naavbar navbaar-default navbar-static-top colo1">
+            <div class="container ">
+                <div class="navbar-header">
 
-    </div>
-    <div class="menu-bar">
-        <ul>
-            @if (Route::has('login'))
-                <li> <a href=""><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Cart  </a></li>
-                @if (Auth::check())
-                    <a href="{{route('home')}}">Home</a>
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
-                @else
-                    <li> <a href="{{route('login')}}">Login</a></li>
-                    <li><a href="{{route('register')}}">Register</a></li>
-                @endif
+                    <!-- Branding Image -->
+                    <a class="navbar-brand marg0" href="{{ url('/') }}">
+                        <!--{{ config('app.name', 'Laravel') }} -->
+                       <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
+                    </a> 
+                </div>
 
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp; 
+                    </ul>
 
-        </ul>
-    </div>
-    @endif
-</div>
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav naavbar-nav navbar-right b3">
+                        <!-- Authentication Links -->
+                         
+
+                        @if (Auth::guest())
+                            <li><a class="btn cou1" href="{{ route('login') }}">Login</a></li>
+                            <li><a class="btn cou1" href="{{ route('register') }}">Register</a></li>
+
+                        @else
+
+                            <li class="dropdown">
+                                <a class="btn cou1" href="#"  data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                        <a class="btn btn-success " href="/Cart"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Panier  </a>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
 <!--------------------------------Products--------------------------------->
+
 
 <h4 class="heading" id="heading4" tabindex="-1">       Informatique</h4> <hr>
 
@@ -222,6 +319,6 @@
 
     <br><br>
 </div>
-
+    <script src="{{ asset('js/app.js') }}"></script>
 
 </body>
