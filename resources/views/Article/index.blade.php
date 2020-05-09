@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
     <style type="text/css">
         body{
             background-color: #e2e2e2;
@@ -85,9 +86,22 @@
         }
         .cou1{
             color: white;
-        } 
-
         }
+        .swal2-icon::before{
+            display: none;
+        }
+        #continuer{
+            margin: 20px;
+            padding-left: 15px;
+        }
+        #panier{
+            margin: 20px;
+            margin-left: 40px;
+        }
+        #byd{
+            color: white;
+        }
+
     </style>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" > </script>
 
@@ -176,7 +190,9 @@
                     </a>
                     <span class="product-trend-label">20% OFF</span>
                     <ul class="social">
-                        <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+
+                     <li> <button onclick="mafonction();" class=" btn btn-success transp" data-tip="Add to Cart"> <i class="fa fa-shopping-cart"></i> </button></li> 
+
 
                     </ul>
 
@@ -200,6 +216,7 @@
                         @can('delete',$article)
 
                         <button type="submit" class="btn btn-danger">Supprimer</button>
+
 
                         @endcan 
 
@@ -230,7 +247,9 @@
                     </a>
                     <span class="product-trend-label">20% OFF</span>
                     <ul class="social">
-                        <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                        <li> <button onclick="mafonction();" class="btn btn-success"><i class="fa fa-shopping-cart"></i></button> </li>
+                        
+                        
 
                     </ul>
 
@@ -281,9 +300,10 @@
                     </a>
                     <span class="product-trend-label">20% OFF</span>
                     <ul class="social">
-                        <li> <a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-
+                        <li> <button onclick="mafonction();" class="btn btn-success"><i class="fa fa-shopping-cart"></i></button> </li>
+                        
                     </ul>
+                    
 
 
                 </div>
@@ -319,6 +339,39 @@
 
     <br><br>
 </div>
-    <script src="{{ asset('js/app.js') }}"></script>
+    
+
+    
+
+    <script type="text/javascript">
+        
+        function mafonction(){
+            
+            Swal.fire({         
+              title: 'Produit Ajouté au Panier !',
+              icon: 'success',
+              showCancelButton: false,
+              html:'<div class="row">' +'<button class="btn btn-warning" id="continuer"><a id="byd" href="\articles">POURSUIVRE VOS ACHATS</a></button>'+
+               
+               '<button class="btn btn-warning" id="panier"><a id="byd" href="\Cart">FINALISER LA COMMANDE</a></button>'+'</div>',
+              showConfirmButton: false,
+              width: '40%',
+              height: '50%'
+            }).then((result) => {
+              if (result.value) {
+                Swal.fire(
+                  'Deleted!',
+                  'Your file has been deleted.',
+                  'success'
+                )
+              }
+            })
+
+        }
+
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    
 
 </body>
+</html>
