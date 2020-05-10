@@ -4,7 +4,7 @@
 @section('content')
 
 
-<form class="container col-md-4 marg1" enctype="multipart/form-data" action="{{ url('articles') }}" method="post">
+<form class="container col-md-4 marg1" enctype="multipart/form-data" action="/article" method="post">
 
       {{ csrf_field() }}
 

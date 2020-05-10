@@ -3,7 +3,7 @@
 
     <title> Store </title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/test.index.css">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -94,7 +94,7 @@
             margin: 20px;
             padding-left: 15px;
         }
-        #panier1{
+        #panier{
             margin: 20px;
             margin-left: 40px;
         }
@@ -172,7 +172,7 @@
                                 </ul>
                             </li>
                         @endif
-                        <a class="btn btn-success " href="{{ url('Panier/'.$id_comm) }}"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Panier  </a>
+                        
                     </ul>
                 </div>
             </div>
@@ -190,45 +190,17 @@
 <div class="container">
     <div class="row">
 
-    @foreach($articlesinf as $article)
+    @foreach($panier as $pan)
 
         <div class="col-md-3 col-sm-6">
             <div class="product-grid">
                 <div class="product-image">
                     
-                        <img id="imgprod" src="{{ asset('storage/'.$article->photo) }}" class="pro-1" >
+                        <img id="imgprod" src="{{ asset('storage/'.$pan->photo) }}" class="pro-1" >
 
                     
                     <span class="product-trend-label">20% OFF</span>
-                
-                     
-                    
-                    <form class="social" action="/AjoutArticle" method="post" id="sub">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
-                        <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
-                        <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
-
-   <a  class=" btn btn-success transp" onclick="mafonction();"> <i class="fa fa-shopping-cart"></i> </a>  
-    
-                        
-                        
-                    </form>
-
-                    
-
-                     
-                    
-                    <form class="social" action="/AjoutArticlee" method="post" id="sube">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
-                        <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
-                        <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
-    
-                    </form>
-
-
-                
+              
 
 
                 </div>
@@ -238,23 +210,10 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-half-o"></i>
-                    <h3> {{ $article->nom }}</h3>
-                    <h5> {{$article->prix}} $</h5>
+                    <h3> {{ $pan->nom }}</h3>
+                    <h5> {{$pan->prix}} $</h5>
                     
-                    <form action="{{ url('articles/'.$article->id_article) }}" method="post">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                        <input type="hidden" value="delete" name="">
-                        <a href="" class="btn btn-info">Détails</a>
-
-                        @can('delete',$article)
-
-                        <button type="submit" class="btn btn-danger">Supprimer</button>
-
-
-                        @endcan 
-
-                    </form>
+                    
                 </div>
             </div>
         </div>
@@ -263,170 +222,15 @@
 
     </div>
 </div>
-<br><br>
-
-<h4 class="heading" id="heading4" tabindex="-1">       Multimédia</h4> <hr>
-
-<div class="container">
-    <div class="row">
-
-        @foreach($articlesmulti as $article)
-
-        <div class="col-md-3 col-sm-6">
-            <div class="product-grid">
-                <div class="product-image">
-                    <a href="">
-                        <img id="imgprod" src="{{ asset('storage/'.$article->photo) }}" class="pro-1" >
-
-                    </a>
-                    <span class="product-trend-label">20% OFF</span>
-                    <ul class="social">
-                        <li> <button onclick="mafonction();" class="btn btn-success"><i class="fa fa-shopping-cart"></i></button> </li>
-                        
-                        
-
-                    </ul>
 
 
-                </div>
-                <div class="product-content">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <h3> {{ $article->nom }}</h3>
-                    <h5> {{$article->prix}} $</h5>
-                    
-                    <form action="{{ url('articles/'.$article->id_article) }}" method="post">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                        <input type="hidden" value="delete" name="">
-                        <a href="" class="btn btn-info">Détails</a>
-                        @can('delete',$article)
-
-                        <button type="submit" class="btn btn-danger">Supprimer</button>
-
-                        @endcan 
-                    </form>
-                </div>
-            </div>
-        </div>
-    
-        @endforeach
-        
-    </div>
-</div>
-<br><br>
-
-<h4 class="heading" id="heading4" tabindex="-1">       Divers</h4> <hr>
-
-<div class="container">
-    <div class="row">
-
-        @foreach($articlesdiv as $article)
-
-        <div class="col-md-3 col-sm-6">
-            <div class="product-grid">
-                <div class="product-image">
-                    <a href="">
-                        <img id="imgprod" src="{{ asset('storage/'.$article->photo) }}" class="pro-1" >
-                    </a>
-                    <span class="product-trend-label">20% OFF</span>
-                    <ul class="social">
-                        <li> <button onclick="mafonction();" class="btn btn-success"><i class="fa fa-shopping-cart"></i></button> </li>
-                        
-                    </ul>
-                    
-
-
-                </div>
-                <div class="product-content">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <h3> {{ $article->nom }}</h3>
-                    <h5> {{$article->prix}} $</h5>
-                    
-
-                    <form action="{{ url('articles/'.$article->id_article) }}" method="post">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                        <input type="hidden" value="delete" name="">
-                        <a href="" class="btn btn-info">Détails</a>
-                        @can('delete',$article)
-
-                        <button type="submit" class="btn btn-danger">Supprimer</button>
-
-                        @endcan 
-                    </form>
-
-                </div>
-            </div>
-        </div>
-    
-        @endforeach
-
-    </div>
-
-    <br><br>
-</div>
-    
-
-    
-
-    <script type="text/javascript">
-        
-        function mafonction(){
-            
-            Swal.fire({         
-              title: 'Produit Ajouté au Panier !',
-              icon: 'success',
-              showCancelButton: false,
-              html:'<div class="row">' +'<button class="btn btn-warning" onclick="submiter1();" id="continuer"><a id="byd" >POURSUIVRE VOS ACHATS</a></button>'+
-               
-               '<button class="btn btn-warning"  onclick="submiter2();" id="panier1"><a id="byd" >FINALISER LA COMMANDE</a></button>'+'</div>',
-              showConfirmButton: false,
-              width: '40%',
-              height: '50%'
-            }).then((result) => {
-              if (result.value) {
-                Swal.fire(
-                  'Deleted!',
-                  'Your file has been deleted.',
-                  'success'
-                )
-              }
-            })
-
-        }
-        function submiter1(){
-            var sub = document.getElementById('sub');
-            sub.submit();
-            
-        }
-        function submiter3() {
-            var panier = document.getElementById('panier');
-            
-            if(submiter1())
-                panier.submit();
-        }
-        function submiter2(){
-            var sube = document.getElementById('sube');
-
-            sube.submit();
-                
-        }
-
-    </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 
 </body>
 </html>

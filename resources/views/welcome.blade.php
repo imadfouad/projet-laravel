@@ -76,6 +76,9 @@
         .feature-box{
             opacity: ;
         }
+        .esp2{
+            margin-left: 10px;
+        }
 
     </style>
 </head>
@@ -94,7 +97,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand marg0" href="{{ url('/') }}">
+                    <a class="navbar-brand marg0" href="{{ url('/$id_comm') }}">
                         <!--{{ config('app.name', 'Laravel') }} -->
                        <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
                     </a> 
@@ -138,6 +141,13 @@
                             </li>
                         @endif
                         <a class="btn btn-success " href="/Cart"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Panier  </a>
+
+                       
+
+                        <a href="/article/create" class=" esp2 btn btn-danger">Ajouter Produit</a>
+
+                        
+
                     </ul>
                 </div>
             </div>
@@ -147,7 +157,7 @@
 
 
 <div class="products mrg2">
-    <a href="/articles"> <h2 class="text-center" ><strong>Vers la page des articles !</strong> </h2> </a> 
+    <a href="/articles/{{$id_comm}}"> <h2 class="text-center" ><strong>Vers la page des articles !</strong> </h2> </a> 
 </div>
 
 

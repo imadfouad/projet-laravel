@@ -3,20 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Commande;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
 
+
 class ArticleController extends Controller
 {
-    public function index(){
+    public function index($id_comm){
         $listinfo = Article::all()->where('categorie','informatique');
         $listmulti = Article::all()->where('categorie','multimédia');
         $listdiv = Article::all()->where('categorie','divers');
 
         return view('Article.index',['articlesdiv' => $listdiv , 'articlesinf' => $listinfo , 
-            'articlesmulti' => $listmulti]);
+            'articlesmulti' => $listmulti , 'id_comm' => $id_comm]);
     }
 
     public function create(){
@@ -25,7 +27,9 @@ class ArticleController extends Controller
         }
 
         elseif(Auth::user()->is_admin && Auth::check()){
+            $this->authorize('create');
             return view('Article.create');
+
         }
     }
 
@@ -43,7 +47,7 @@ class ArticleController extends Controller
 
     	$article->save();
 
-        return redirect('articles');
+        return redirect('');
 
     }
 
@@ -62,7 +66,7 @@ class ArticleController extends Controller
         $this->authorize('delete', $article);
 
         $article->delete();
-        return redirect('articles');
+        return redirect('');
 
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Policies;
-
+use App\Auth;
 use App\User;
 use App\Article;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -30,7 +30,7 @@ class ArticlePolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->is_admin ;
     }
 
     /**

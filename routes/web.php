@@ -10,10 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/Panier/{id_comm}','LigneController@index')->name('Panier');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('welcome/{id_comm}', 'WelcomeController@index')->name('welcome');
+Route::get('/', 'CommandeController@store')->name('accueil');
 
 use App\Commande;
 use App\Article;
@@ -23,12 +23,28 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/Cart','ShowArticlesController@index');
+
+
+//panier
+
+Route::get('/commande','CommandeController@store');
+
+Route::post('/AjoutArticle','LigneController@store');
+Route::post('/AjoutArticlee','LigneController@storee');
+
+
+// /panier
+
+
+
+
 Route::get('/ShowOneArticle','ShowArticlesController@index1');
 
+Route::get('articles','WelcomeController@index');
 
-Route::get('articles','ArticleController@index');
-Route::get('articles/create','ArticleController@create');
-Route::post('articles','ArticleController@store');
+Route::get('articles/{id_comm}','ArticleController@index')->name('articles');
+Route::get('/article/create','ArticleController@create');
+Route::post('/article','ArticleController@store');
 Route::delete('articles/{id_article}','ArticleController@destroy');
 
 
@@ -39,3 +55,8 @@ Route::get('/find/{id}/commande',function($id){
 	$pro = Commande::find($id)->article;
 	return $pro;
 });
+
+
+
+
+
