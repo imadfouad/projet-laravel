@@ -10,15 +10,13 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
     <style type="text/css">
        body {
-            background-color: #E1DFDD;
-            background-size: 100%;
+            background-color: #e2e2e2;
         }
-     .colo1{
-            background-color: #f5f8fa;
-        }
+     
         .marg0{
             padding-top: 2px;
             margin: 0;
+            padding-left: 4px;
         }
 
         #logo{
@@ -35,7 +33,7 @@
 
 
         .colo1{
-            background-color: #f8f8f8;
+            background-color: #000f2f;
             
         }
         .marg0{
@@ -51,7 +49,7 @@
                 
         }
         .colo2{
-            background-color: #f8f8f8;
+            background-color: #f7f1f1;
         }
         #colo2{
             background-color: #f8f8f8;
@@ -124,7 +122,6 @@
 
 </head>
 <body>
-    <div id="app">
         <nav class="naavbar navbaar-default navbar-static-top colo1">
             <div class="container ">
                 <div class="navbar-header">
@@ -157,13 +154,13 @@
                          
 
                         @if (Auth::guest())
-                            <li><a class="btn" href="{{ route('login') }}">Login</a></li>
-                            <li><a class="btn" href="{{ route('register') }}">Register</a></li>
+                            <li><a class="btn cou1" href="{{ route('login') }}">Login</a></li>
+                            <li><a class="btn cou1" href="{{ route('register') }}">Register</a></li>
 
                         @else
 
                             <li class="dropdown">
-                                <a href="#"  data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a class="btn cou1" href="#"  data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -358,17 +355,8 @@
 
     <br><br>
 </div>
-<div class="container" id="about">
-<h2 ><strong>contacter-nous!!</strong> </h2>
-<div class="about-infos">
-    <ul>
-        <li><a>Télephone: +2125687545483</a> </li>
-        <li><a href="https://www.facebook.com"><img id="fb-logo" src="https://cdn.pixabay.com/photo/2015/05/17/10/51/facebook-770688_1280.png"></a></li>
-    </ul>
-    
-    
-</div>
-</div>
+
+
 <br><br>
     
 
