@@ -76,6 +76,16 @@
         .feature-box{
             opacity: ;
         }
+        .about-infos{
+        	font-family:sans-serif;
+        	font-size: 15px;
+        	color: black;
+
+        	        }
+        #fb-logo{
+        	height: 30px;
+        	width: 30px;
+        }
 
     </style>
 </head>
@@ -103,6 +113,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                    	 <li><a class="btn" href="{{ url('/') }}">home</a></li>
                         &nbsp; 
                     </ul>
 
@@ -138,6 +149,7 @@
                             </li>
                         @endif
                         <a class="btn btn-success " href="/Cart"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Panier  </a>
+                         <li><a type="btn" href="#about">aide?</a></li>
                     </ul>
                 </div>
             </div>
@@ -243,8 +255,19 @@
     </div>
 </div>
 <br><br>
-
+<div class="container" id="about">
+<h2 ><strong>contacter-nous!!</strong> </h2>
+<div class="about-infos">
+	<ul>
+		<li><a>Télephone: +2125687545483</a> </li>
+		<li><a href="https://www.facebook.com"><img id="fb-logo" src="https://cdn.pixabay.com/photo/2015/05/17/10/51/facebook-770688_1280.png"></a></li>
+	</ul>
+	
+	
 </div>
+</div>
+<br><br>
+
 
 
 

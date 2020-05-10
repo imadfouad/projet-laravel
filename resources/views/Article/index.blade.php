@@ -9,19 +9,24 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
     <style type="text/css">
-        body{
-            background-color: #e2e2e2;
+       body {
+            background-color: #E1DFDD;
+            background-size: 100%;
+        }
+     .colo1{
+            background-color: #f5f8fa;
         }
         .marg0{
             padding-top: 2px;
             margin: 0;
-            padding-left: 4px;
         }
+
         #logo{
             height: 60px;
                 width: 45px;
                 margin: 0;
                 padding-bottom: 15px;
+                
         }
         #imgprod{
             height: 250px;
@@ -30,7 +35,7 @@
 
 
         .colo1{
-            background-color: #000f2f;
+            background-color: #f8f8f8;
             
         }
         .marg0{
@@ -46,7 +51,7 @@
                 
         }
         .colo2{
-            background-color: #f7f1f1;
+            background-color: #f8f8f8;
         }
         #colo2{
             background-color: #f8f8f8;
@@ -101,6 +106,16 @@
         #byd{
             color: white;
         }
+         .about-infos{
+            font-family:sans-serif;
+            font-size: 15px;
+            color: black;
+
+                    }
+        #fb-logo{
+            height: 30px;
+            width: 30px;
+        }
 
     </style>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" > </script>
@@ -109,7 +124,8 @@
 
 </head>
 <body>
-<nav class="naavbar navbaar-default navbar-static-top colo1">
+    <div id="app">
+        <nav class="naavbar navbaar-default navbar-static-top colo1">
             <div class="container ">
                 <div class="navbar-header">
 
@@ -131,6 +147,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                         <li><a class="btn" href="{{ url('/') }}">home</a></li>
                         &nbsp; 
                     </ul>
 
@@ -140,13 +157,13 @@
                          
 
                         @if (Auth::guest())
-                            <li><a class="btn cou1" href="{{ route('login') }}">Login</a></li>
-                            <li><a class="btn cou1" href="{{ route('register') }}">Register</a></li>
+                            <li><a class="btn" href="{{ route('login') }}">Login</a></li>
+                            <li><a class="btn" href="{{ route('register') }}">Register</a></li>
 
                         @else
 
                             <li class="dropdown">
-                                <a class="btn cou1" href="#"  data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#"  data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -166,10 +183,12 @@
                             </li>
                         @endif
                         <a class="btn btn-success " href="/Cart"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Panier  </a>
+                         <li><a type="btn" href="#about">aide?</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+    </div>
 
 <!--------------------------------Products--------------------------------->
 
@@ -339,6 +358,18 @@
 
     <br><br>
 </div>
+<div class="container" id="about">
+<h2 ><strong>contacter-nous!!</strong> </h2>
+<div class="about-infos">
+    <ul>
+        <li><a>Télephone: +2125687545483</a> </li>
+        <li><a href="https://www.facebook.com"><img id="fb-logo" src="https://cdn.pixabay.com/photo/2015/05/17/10/51/facebook-770688_1280.png"></a></li>
+    </ul>
+    
+    
+</div>
+</div>
+<br><br>
     
 
     
