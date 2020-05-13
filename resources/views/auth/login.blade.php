@@ -61,7 +61,55 @@
                             </div>
                         </div>
                     </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
                     
+                    <form class="form-horizontal" id="log1" hidden="hidden" method="POST" action="{{ route('login') }}">
+
+                        {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+
+                            <div class="col-md-6">
+                                <input id="email1" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password1" type="password" class="form-control" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                    </form>
+
+
                     <button style="margin-left: 250px;" id="clk" onclick="mafct();" class="btn btn-info">Accéder au site autant que Visiteur </button>
 
 <script type="text/javascript">
@@ -71,9 +119,9 @@ var i = 0;
                 
                 var clk = document.getElementById('clk');
         
-        var email = document.getElementById('email');
-    var password = document.getElementById('password');
-    var log = document.getElementById('log');
+        var email = document.getElementById('email1');
+    var password = document.getElementById('password1');
+    var log = document.getElementById('log1');
 
         email.removeAttribute('value');
         email.setAttribute('value','visiteur@gmail.com');
