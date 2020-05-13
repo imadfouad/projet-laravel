@@ -9,7 +9,7 @@ class Article extends Model
 	protected $primaryKey = 'id_article';
 
 	//la relation n:n
-    public function commande(){
-    	return $this->belongsToMany('App\Commande');
+    public function commandes(){
+    	return $this->belongsToMany('App\Commande','lignes');
     }
 }

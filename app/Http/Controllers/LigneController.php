@@ -12,7 +12,7 @@ class LigneController extends Controller
 
 	public  function index($id_comm){
         $panier = Ligne::all()->where('id_comm',$id_comm);
-        $tous=[];
+        $tous=array();
         foreach ($panier as $pan ) {
         	 array_push($tous,  Article::find($pan->id_article));
         }
@@ -21,32 +21,31 @@ class LigneController extends Controller
     }
 
 
-    public function store(Request $request){
+    public function store(Request $request , $id_comm ,$id_article){
 
-    	$ligne = new Ligne();
+    	$commande = Commande::find($id_comm);
 
-    	$ligne->id_comm = $request->input('id_comm');
-    	$ligne->id_article = $request->input('id_article');
-    	$ligne->quantite = 1;
-    	$ligne->prix_unit = $request->input('prix_unit');
+    	$article = Article::find($id_article);
 
-    	$ligne->save();
 
-        return redirect()->route('articles',[$ligne->id_comm]);
+    	$commande->articles()->attach($article , ['quantite'=>1,'prix_unit'=>$article->prix]);
+
+
+        return redirect()->route('articles',[$id_comm]);
 }
 
-public function storee(Request $request){
 
-    	$ligne = new Ligne();
 
-    	$ligne->id_comm = $request->input('id_comm');
-    	$ligne->id_article = $request->input('id_article');
-    	$ligne->quantite = 1;
-    	$ligne->prix_unit = $request->input('prix_unit');
+public function storee(Request $request , $id_comm , $id_article){
 
-    	$ligne->save();
+    	$commande = Commande::find($id_comm);
 
-        return redirect()->route('Panier',[$ligne->id_comm]); 
+    	$article = Article::find($id_article);
+
+
+    	$commande->articles()->attach($article , ['quantite'=>1,'prix_unit'=>$article->prix]);
+
+        return redirect()->route('Panier',[$id_comm]); 
 }
 
 

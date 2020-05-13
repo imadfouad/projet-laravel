@@ -10,6 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//checkout Routes
+
+Route::get('/paiement/{total}','CheckoutController@index')->name('checkout.index');
+
+Route::get('/success','CheckoutController@indexsuccess');
+
+
+
+//
 Route::get('/Panier/{id_comm}','LigneController@index')->name('Panier');
 
 Route::get('welcome/{id_comm}', 'WelcomeController@index')->name('welcome');
@@ -29,13 +39,13 @@ Route::get('/Cart','ShowArticlesController@index');
 
 Route::get('/commande','CommandeController@store');
 
-Route::post('/AjoutArticle','LigneController@store');
-Route::post('/AjoutArticlee','LigneController@storee');
+Route::get('ajoutArticle/{id_comm}/pan/{id_article}','LigneController@store');
+Route::get('ajoutArticlee/{id_comm}/pan/{id_article}','LigneController@storee');
 
 
 // /panier
 
-
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 Route::get('/ShowOneArticle','ShowArticlesController@index1');
@@ -46,6 +56,9 @@ Route::get('articles/{id_comm}','ArticleController@index')->name('articles');
 Route::get('/article/create','ArticleController@create');
 Route::post('/article','ArticleController@store');
 Route::delete('articles/{id_article}','ArticleController@destroy');
+
+//login for visiteurs
+
 
 
 

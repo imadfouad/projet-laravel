@@ -24,8 +24,8 @@
                 padding-bottom: 15px;
         }
         #imgprod{
-            height: 250px;
-            width: 250px;
+            height: 50px;
+            width: 50px;
         } 
 
 
@@ -185,42 +185,77 @@
 <!--------------------------------Products--------------------------------->
 
 
-<h4 class="heading" id="heading4" tabindex="-1">       Informatique</h4> <hr>
+<h4 style="font-size: 2em;font-weight: bold;" class="container heading" id="heading4" tabindex="-1">       Liste des Produits:</h4> <hr>
 
 <div class="container">
-    <div class="row">
-
-    @foreach($panier as $pan)
-
-        <div class="col-md-3 col-sm-6">
-            <div class="product-grid">
-                <div class="product-image">
-                    
-                        <img id="imgprod" src="{{ asset('storage/'.$pan->photo) }}" class="pro-1" >
-
-                    
-                    <span class="product-trend-label">20% OFF</span>
-              
-
-
-                </div>
-                <div class="product-content">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <h3> {{ $pan->nom }}</h3>
-                    <h5> {{$pan->prix}} $</h5>
-                    
-                    
-                </div>
-            </div>
-        </div>
     
-    @endforeach
+    <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Catégorie</th>
+              <th scope="col">Image</th>
+              <th scope="col">Nom du Produit</th>
+              <th scope="col">Prix</th>
+            </tr>
+          </thead>
+          <tbody>
+                    <input type="hidden" name="" value="{{$total=0}}"> 
+                     <input type="hidden" name="" value="{{$i=1}}"> 
+    
+            
 
-    </div>
+            
+
+    @if(Auth::user()->name == "visiteur")
+            {{ Session::put('panier', $panier) }} 
+           
+        <?php
+                $paniers = Session::get('panier') ;
+                 ?>
+        
+        @foreach($paniers as $pan)
+{{ $pan }}
+
+             <input type="hidden" name="" value="{{$total += $pan->prix}}">      
+            <tr>
+              <th scope="row">{{ $i++ }}</th>
+              <td>{{$pan->categorie}}</td>
+              <td><img id="imgprod" src="{{ asset('storage/'.$pan->photo) }}" class="pro-1" ></td>
+              <td>{{$pan->nom}}</td>
+              <td>{{$pan->prix}} DH</td>
+            </tr>
+
+                
+        @endforeach
+
+    @else
+
+        
+
+            @foreach($panier as $pan)  
+            <input type="hidden" name="" value="{{$total += $pan->prix}}">      
+                <tr>
+                  <th scope="row">{{ $i++ }}</th>
+                  <td>{{$pan->categorie}}</td>
+                  <td><img id="imgprod" src="{{ asset('storage/'.$pan->photo) }}" class="pro-1" ></td>
+                  <td>{{$pan->nom}}</td>
+                  <td>{{$pan->prix}} DH</td>
+                </tr>
+            @endforeach   
+        
+
+     @endif    
+          </tbody>
+    </table>
+
+    <h3 class="container" style="background-color: #e2e2e2; padding-left: 820px;"> Le Total : {{ $total }} DH </h3>
+    <br><br><br>
+
+    <a href="/paiement/{{$total}}">  <button style="margin-left: 430px; height: 50px; width: 200px;" class="btn btn-dark">Passer à la caisse</button>   </a>
+        
+
+    
 </div>
 
 

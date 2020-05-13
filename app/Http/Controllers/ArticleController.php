@@ -13,12 +13,14 @@ use Illuminate\Http\UploadedFile;
 class ArticleController extends Controller
 {
     public function index($id_comm){
-        $listinfo = Article::all()->where('categorie','informatique');
-        $listmulti = Article::all()->where('categorie','multimédia');
-        $listdiv = Article::all()->where('categorie','divers');
+        $listinfo = Article::all()->where('categorie','informatique') ;
+        $listmulti =  Article::all()->where('categorie','multimédia') ;
+        $listdiv =  Article::all()->where('categorie','divers') ;
 
-        return view('Article.index',['articlesdiv' => $listdiv , 'articlesinf' => $listinfo , 
-            'articlesmulti' => $listmulti , 'id_comm' => $id_comm]);
+        
+
+        return view('Article.index',['articlesdivs' => $listdiv , 'articlesinfs' => $listinfo, 
+            'articlesmultis' => $listmulti, 'id_comm' => $id_comm ]);
     }
 
     public function create(){
@@ -27,7 +29,7 @@ class ArticleController extends Controller
         }
 
         elseif(Auth::user()->is_admin && Auth::check()){
-            $this->authorize('create');
+            
             return view('Article.create');
 
         }

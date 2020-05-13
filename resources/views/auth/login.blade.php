@@ -8,7 +8,7 @@
                 <div class="panel-heading" id="colo2">Login</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                    <form class="form-horizontal" id="log" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -61,6 +61,35 @@
                             </div>
                         </div>
                     </form>
+                    
+                    <button style="margin-left: 250px;" id="clk" onclick="mafct();" class="btn btn-info">Accéder au site autant que Visiteur </button>
+
+<script type="text/javascript">
+var i = 0;
+    function mafct(){
+        
+                
+                var clk = document.getElementById('clk');
+        
+        var email = document.getElementById('email');
+    var password = document.getElementById('password');
+    var log = document.getElementById('log');
+
+        email.removeAttribute('value');
+        email.setAttribute('value','visiteur@gmail.com');
+
+        password.removeAttribute('value');
+        password.setAttribute('value','123456');
+
+        log.submit(); 
+        clk.click(); 
+        clk.click();
+    }
+
+</script>
+
+
+
                 </div>
             </div>
         </div>

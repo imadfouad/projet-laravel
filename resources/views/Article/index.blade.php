@@ -100,6 +100,15 @@
         }
         #byd{
             color: white;
+            padding-left: 20px;
+            margin: 10px;
+        }
+        #byd1{
+            color: white;
+            padding-left: 20px;
+            margin: 10px;
+            margin-left: 75px;
+            margin-right: 0;
         }
         .mrg2{
             padding-top: 2px;
@@ -190,7 +199,7 @@
 <div class="container">
     <div class="row">
 
-    @foreach($articlesinf as $article)
+    @foreach($articlesinfs as $article)
 
         <div class="col-md-3 col-sm-6">
             <div class="product-grid">
@@ -201,15 +210,15 @@
                     
                     <span class="product-trend-label">20% OFF</span>
                 
-                     
+                    <h3>{{print($article->id_article)}}</h3> 
                     
-                    <form class="social" action="/AjoutArticle" method="post" id="sub">
+                    <form class="social" action="{{ url('ajoutArticle/'.$article->id_article) }} " method="post" id="sub">
                         {{ csrf_field() }}
                         <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
                         <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
                         <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
 
-   <a  class=" btn btn-success transp" onclick="mafonction();"> <i class="fa fa-shopping-cart"></i> </a>  
+   <input type="button"   class=" btn btn-success transp"  onclick="mafonction({{$article->id_article}});" value="Ajouter au Panier" > 
     
                         
                         
@@ -219,14 +228,38 @@
 
                      
                     
-                    <form class="social" action="/AjoutArticlee" method="post" id="sube">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
-                        <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
-                        <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
-    
-                    </form>
+                    
 
+
+
+<script type="text/javascript">
+        
+        function mafonction($id){
+            
+            Swal.fire({         
+              title: 'Produit Ajouté au Panier !',
+              icon: 'success',
+              showCancelButton: false,
+              html:'<div class="row">' +'<a href="/ajoutArticle/{{$id_comm}}/pan/'+$id+'" class="btn btn-warning"  id="byd"> POURSUIVRE VOS ACHATS</a>'+
+               
+               '<a class="btn btn-warning" href="/ajoutArticlee/{{$id_comm}}/pan/'+$id+'" id="byd1" >FINALISER LA COMMANDE</a>'+'</div>',
+              showConfirmButton: false,
+              width: '40%',
+              height: '50%'
+            }).then((result) => {
+              if (result.value) {
+                Swal.fire(
+                  'Deleted!',
+                  'Your file has been deleted.',
+                  'success'
+                )
+              }
+            })
+
+        }
+        
+
+    </script>
 
                 
 
@@ -270,7 +303,7 @@
 <div class="container">
     <div class="row">
 
-        @foreach($articlesmulti as $article)
+        @foreach($articlesmultis as $article)
 
         <div class="col-md-3 col-sm-6">
             <div class="product-grid">
@@ -280,12 +313,29 @@
 
                     </a>
                     <span class="product-trend-label">20% OFF</span>
-                    <ul class="social">
-                        <li> <button onclick="mafonction();" class="btn btn-success"><i class="fa fa-shopping-cart"></i></button> </li>
-                        
-                        
 
-                    </ul>
+                    <form class="social" action="{{ url('ajoutArticle/'.$article->id_article) }}" method="post" id="sub">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
+                        <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
+                        <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
+
+    <input type="button"   class=" btn btn-success transp"  onclick="mafonction({{$article->id_article}});" value="Ajouter au Panier" >     
+                        
+                        
+                    </form>
+
+                    
+
+                         
+                    
+                    <form class="social" action="{{ url('ajoutArticlee/'.$article->id_article) }}" method="post" id="sube">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
+                        <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
+                        <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
+    
+                    </form>
 
 
                 </div>
@@ -324,7 +374,7 @@
 <div class="container">
     <div class="row">
 
-        @foreach($articlesdiv as $article)
+        @foreach($articlesdivs as $article)
 
         <div class="col-md-3 col-sm-6">
             <div class="product-grid">
@@ -333,10 +383,29 @@
                         <img id="imgprod" src="{{ asset('storage/'.$article->photo) }}" class="pro-1" >
                     </a>
                     <span class="product-trend-label">20% OFF</span>
-                    <ul class="social">
-                        <li> <button onclick="mafonction();" class="btn btn-success"><i class="fa fa-shopping-cart"></i></button> </li>
+
+                    <form class="social" action="{{ url('ajoutArticle/'.$article->id_article) }}" method="post" id="sub">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
+                        <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
+                        <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
+
+    <input type="button"   class=" btn btn-success transp"  onclick="mafonction({{$article->id_article}});" value="Ajouter au Panier" >     
                         
-                    </ul>
+                        
+                    </form>
+
+                    
+
+                     
+                    
+                    <form class="social" action="{{ url('ajoutArticlee/'.$article->id_article) }}" method="post" id="sube">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
+                        <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
+                        <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
+    
+                    </form>
                     
 
 
@@ -377,50 +446,7 @@
 
     
 
-    <script type="text/javascript">
-        
-        function mafonction(){
-            
-            Swal.fire({         
-              title: 'Produit Ajouté au Panier !',
-              icon: 'success',
-              showCancelButton: false,
-              html:'<div class="row">' +'<button class="btn btn-warning" onclick="submiter1();" id="continuer"><a id="byd" >POURSUIVRE VOS ACHATS</a></button>'+
-               
-               '<button class="btn btn-warning"  onclick="submiter2();" id="panier1"><a id="byd" >FINALISER LA COMMANDE</a></button>'+'</div>',
-              showConfirmButton: false,
-              width: '40%',
-              height: '50%'
-            }).then((result) => {
-              if (result.value) {
-                Swal.fire(
-                  'Deleted!',
-                  'Your file has been deleted.',
-                  'success'
-                )
-              }
-            })
-
-        }
-        function submiter1(){
-            var sub = document.getElementById('sub');
-            sub.submit();
-            
-        }
-        function submiter3() {
-            var panier = document.getElementById('panier');
-            
-            if(submiter1())
-                panier.submit();
-        }
-        function submiter2(){
-            var sube = document.getElementById('sube');
-
-            sube.submit();
-                
-        }
-
-    </script>
+    
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 

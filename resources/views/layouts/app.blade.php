@@ -46,6 +46,11 @@
         }
 
     </style>
+
+    @yield('extra-script')
+
+    @yield('css')
+
 </head>
 <body>
     <div id="app">
@@ -111,6 +116,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    
+    @yield('extra-js')
 </body>
 </html>

@@ -186,75 +186,7 @@
     </div>
 <br><br> 
 
-<div class="products">
 
-<div class="container">
-<h2 ><strong>Informatique</strong> </h2>
-     
-    <div class="card-group">
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    </div>
-<br><br>
-
-<h2><strong> Multimédia</strong></h2>  
-    <div class="card-group ">
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    </div>
-</div>
-
-<br><br>
-
-<div class="container">
-<h2><strong>Divers</strong> </h2>  
-    <div class="card-group">
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    <div id="car2" class="card">
-       <img id="car1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="card-img-top" alt="...">
-    </div>
-    </div>
-</div>
-<br><br>
-
-</div>
 
 
 

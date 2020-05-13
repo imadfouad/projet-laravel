@@ -11,7 +11,7 @@ class Commande extends Model
 	
 
 	//la relation n:n
-    public function article(){
-    	return $this->belongsToMany('App\Article');
+    public function articles(){
+    	return $this->belongsToMany('App\Article','lignes','id_comm','id_article');
     }
 }
