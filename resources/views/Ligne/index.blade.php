@@ -184,8 +184,15 @@
 </div>
 <!--------------------------------Products--------------------------------->
 
+<div class="row">
+    
+    <h4 style="font-size: 2em;font-weight: bold;" class="container heading" id="heading4" tabindex="-1">       Liste des Produits:</h4> 
+    <a href="/Panier/{{ $id_comm=$id_comm - 1 }}" class="btn btn-info">Récupérer ancienne commande</a>
 
-<h4 style="font-size: 2em;font-weight: bold;" class="container heading" id="heading4" tabindex="-1">       Liste des Produits:</h4> <hr>
+</div>
+
+
+<hr>
 
 <div class="container">
     
@@ -215,7 +222,7 @@
                  ?>
         
         @foreach($paniers as $pan)
-{{ $pan }}
+{ 1pan }
 
              <input type="hidden" name="" value="{{$total += $pan->prix}}">      
             <tr>
