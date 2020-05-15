@@ -1,7 +1,7 @@
 <html>
 <head>
 
-    <title> Store </title>
+    <title> Articles </title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/test.index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
@@ -44,6 +44,9 @@
                 margin: 0;
                 padding-bottom: 15px;
                 
+        }
+        .esp2{
+            margin-left: 10px;
         }
         .colo2{
             background-color: #f7f1f1;
@@ -144,10 +147,11 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand marg0" >
+                    <a class="navbar-brand marg0" href="/welcome/{{ $id_comm }}">
                         <!--{{ config('app.name', 'Laravel') }} -->
                        <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
-                    </a> 
+                    </a>
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -180,7 +184,7 @@
                                             Logout
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none; ">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
@@ -188,7 +192,8 @@
                             </li>
                         @endif
                         <a class="btn btn-success " href="{{ url('Panier/'.$id_comm) }}"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Panier  </a>
-                        <a href="/mailUs" class=" esp2 btn btn-danger">CONTACTEZ-NOUS</a>
+                        <a href="/article/{{$id_comm}}/create" class=" esp2 btn btn-danger">Ajouter Produit</a>
+                        <a href="/mailUs/{{$id_comm}}" class=" esp2 btn btn-danger">CONTACTEZ-NOUS</a>
                     </ul>
                 </div>
             </div>
@@ -285,7 +290,7 @@
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                         <input type="hidden" value="delete" name="">
-                        <a href="" class="btn btn-info">Détails</a>
+                        <a href="/article/{{$id_comm}}/{{$article->id_article}}" class="btn btn-info">Détails</a>
 
                         @can('delete',$article)
 
@@ -359,7 +364,7 @@
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                         <input type="hidden" value="delete" name="">
-                        <a href="" class="btn btn-info">Détails</a>
+                        <a href="/article/{{$id_comm}}/{{$article->id_article}}" class="btn btn-info">Détails</a>
                         @can('delete',$article)
 
                         <button type="submit" class="btn btn-danger">Supprimer</button>
@@ -431,7 +436,7 @@
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                         <input type="hidden" value="delete" name="">
-                        <a href="" class="btn btn-info">Détails</a>
+                        <a href="/article/{{$id_comm}}/{{$article->id_article}}" class="btn btn-info">Détails</a>
                         @can('delete',$article)
 
                         <button type="submit" class="btn btn-danger">Supprimer</button>

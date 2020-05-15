@@ -23,14 +23,14 @@ class ArticleController extends Controller
             'articlesmultis' => $listmulti, 'id_comm' => $id_comm ]);
     }
 
-    public function create(){
+    public function create($id_comm){
         if(!Auth::check() || (!Auth::user()->is_admin && Auth::check()) ){   
-    	return view('Article.err');
+    	return view('Article.err',['id_comm' => $id_comm]);
         }
 
         elseif(Auth::user()->is_admin && Auth::check()){
             
-            return view('Article.create');
+            return view('Article.create',['id_comm' => $id_comm]);
 
         }
     }
@@ -72,7 +72,8 @@ class ArticleController extends Controller
 
     }
 
-    public function show( $id_article) {
-    return view('product/show');
+    public function show($id_comm , $id_article) {
+        $article = Article::find($id_article);
+        return view('Article.show',['article' => $article , 'id_comm' => $id_comm]);
   }
 }

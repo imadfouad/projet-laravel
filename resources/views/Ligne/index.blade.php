@@ -1,7 +1,7 @@
 <html>
 <head>
 
-    <title> Store </title>
+    <title> Panier </title>
     <meta charset="UTF-8">
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
@@ -129,10 +129,11 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand marg0" >
+                    <a class="navbar-brand marg0" href="/welcome/{{ $id_comm }}">
                         <!--{{ config('app.name', 'Laravel') }} -->
                        <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
-                    </a> 
+                    </a>
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -153,6 +154,9 @@
                         @else
 
                             <li class="dropdown">
+                                
+                                
+
                                 <a class="btn cou1" href="#"  data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -187,7 +191,7 @@
 <div class="row">
     
     <h4 style="font-size: 2em;font-weight: bold;" class="container heading" id="heading4" tabindex="-1">       Liste des Produits:</h4> 
-    <a href="/Panier/{{ $id_comm=$id_comm - 1 }}" class="btn btn-info">Récupérer ancienne commande</a>
+    <a href="/Panier/{{ $id_comm=$id_comm - 1 }}" class="btn btn-info">Récupérer ancienne commande .</a>
 
 </div>
 

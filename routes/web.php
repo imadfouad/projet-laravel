@@ -53,18 +53,21 @@ Route::get('/ShowOneArticle','ShowArticlesController@index1');
 Route::get('articles','WelcomeController@index');
 
 Route::get('articles/{id_comm}','ArticleController@index')->name('articles');
-Route::get('/article/create','ArticleController@create');
+Route::get('/article/{id_comm}/create','ArticleController@create');
 Route::post('/article','ArticleController@store');
 Route::delete('articles/{id_article}','ArticleController@destroy');
+
+Route::get('/article/{id_comm}/{id_article}','ArticleController@show');
 
 //login for visiteurs
 
 
 
 //mail us route
-Route::get('/mailUs', function(){
-	return view('/mailUs');
+Route::get('/mailUs/{id_comm}', function($id_comm){
+	return view('/mailUs',['id_comm' => $id_comm]);
 });
+
 //les routes de relations n:n
 //les articles dans une commande
 Route::get('/find/{id}/commande',function($id){
