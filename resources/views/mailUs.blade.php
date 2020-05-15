@@ -4,23 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-    
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <title>help</title> 
     <!-- Styles -->
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" media="all" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="all">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/css">
         
         body {
@@ -91,7 +83,33 @@
             color: white; 
 
         }
-
+        .form-top{
+  margin-top: 30px;
+}
+.panel{
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,.12), 0 1px 6px 0 rgba(0,0,0,.12);
+  border-radius: 6px;
+    border: 0;
+}
+@-moz-document url-prefix() {
+    .form-control{
+      height: auto;
+    }
+}
+.panel-primary{
+  background-color: #2c3e50;
+  color: #fff;
+}
+.panel-primary>.panel-heading {
+    color: #fff;
+    font-size: 20px;
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+}
+.btn-warning{
+  background-color: transparent;
+  border-color: #bdc3c7;
+}
     </style>
 </head>
 <body>
@@ -153,55 +171,55 @@
                             </li>
                         @endif
                         <a class="btn btn-success " href="/Cart"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Panier  </a>
-
-                       
-
                         <a href="/article/create" class=" esp2 btn btn-danger">Ajouter Produit</a>
                         <a href="/mailUs" class=" esp2 btn btn-danger">CONTACTEZ-NOUS</a>
-
-                        
-
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
 
-
-
-<div class="products mrg2">
-    <a href="/articles/{{$id_comm}}"> <h2 class="text-center" ><strong>Vers la page des articles !</strong> </h2> </a> 
-</div>
-
-
-    <div class="container cont">
-        <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active" data-interval="10000">
-              <img id="im1" src="https://i.ibb.co/3WPcm8w/ps4-listing-thumb-01-ps4-eu-06sep16.png" class="d-block w-100" alt="...">
+    <div class="container" id="mail">
+            <!-- Form Started -->
+            <div class="container form-top">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-danger">
+                            <div class="panel-body">
+                                <form id="reused_form">
+                                    <div class="form-group">
+                                        <label><i class="fa fa-user" aria-hidden="true"></i> Nom et Prenom</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
+                                        <input type="email" name="email" class="form-control" placeholder="Enter Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><i class="fa fa-comment" aria-hidden="true"></i> Message</label>
+                                        <textarea rows="3" name="message" class="form-control" placeholder="Type Your Message"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-raised btn-block btn-danger" id="Envoyer" onclick="click()">Envoyer &rarr;</button>
+                                    </div>
+                                </form>
+                                <div id="error_message" style="width:100%; height:100%; display:none; ">
+                                    <h4>
+                                        Error
+                                    </h4>
+                                    on avait une erreur en envoyant votre message
+                                </div>
+                                <div id="success_message" style="width:100%; height:100%; display:none; ">
+                            <h2>Success! message envoyé.</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="carousel-item" data-interval="2000">
-              <img id="im1" src="https://i.ibb.co/gwm2xxc/imageonline-co-transparentimage-1-1.png" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img id="im1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="d-block w-100" alt="...">
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+            <!-- Form Ended -->
         </div>
-    </div>
-<br><br> 
-
-
-
-<div class="footer">
+    <div class="footer">
         <div class="container">
             <div class="col-md-3 w3_footer_grid">
                 <h3>information</h3>
@@ -252,13 +270,9 @@
             </div>
         </div>
     </div>
-
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function click(){
+        }
+    </script>
 </body>
 </html>

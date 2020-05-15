@@ -61,7 +61,10 @@ Route::delete('articles/{id_article}','ArticleController@destroy');
 
 
 
-
+//mail us route
+Route::get('/mailUs', function(){
+	return view('/mailUs');
+});
 //les routes de relations n:n
 //les articles dans une commande
 Route::get('/find/{id}/commande',function($id){

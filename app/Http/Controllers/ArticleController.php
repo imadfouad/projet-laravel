@@ -72,7 +72,7 @@ class ArticleController extends Controller
 
     }
 
-    public function show(){
-
-    }
+    public function show( $id_article) {
+    return view('product/show');
+  }
 }
