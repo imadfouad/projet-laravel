@@ -289,6 +289,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-half-o"></i>
+                    <a href="/add-to-cart/{{$article->id_article}}">Add to Cart</a>
                     <h3> {{ $article->nom }}</h3>
                     <h5> {{$article->prix}} $</h5>
                     
@@ -363,6 +364,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-half-o"></i>
+                    <a href="/add-to-cart/{{$article->id_article}}">Add to Cart</a>
                     <h3> {{ $article->nom }}</h3>
                     <h5> {{$article->prix}} $</h5>
                     
