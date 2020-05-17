@@ -8,7 +8,7 @@ class ShowArticlesController extends Controller
 {
 
     public function index (){
-        return view('Cart');
+        return view('Product');
 
     }
     public function index1 (){

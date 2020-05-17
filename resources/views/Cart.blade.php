@@ -213,219 +213,59 @@
     </style>
   </head>
   <body>
-        <div id="app">
-        <nav class="naavbar navbaar-default navbar-static-top colo1">
-            <div class="container ">
-                <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+  @section('content')
+      @if(Session::has('cart'))
+          <div class="row">
+              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                  <ul class="list-group">
+                      @foreach($articles as $article)
+                          <li class="list-group-item">
+                              <span class="badge">{{ $article['TotalItems'] }}</span>
+                              <strong>{{ $article['title'] }}</strong>
+                              <span class="label label-success">{{ $article['price'] }}</span>
+                              <div class="btn-group">
+                                  <button type="button" class="btn btn-primary btn-xs dropdown-toogle" data-toggle="dropdown">Action <span class="caret"></span></button>
+                                  <ul class="dropdown-menu">
+                                      <li><a href="#">Reduce by 1</a></li>
+                                      <li><a href="#">Reduce All</a></li>
+                                  </ul>
+                              </div>
+                          </li>
+                      @endforeach
+                  </ul>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                  <strong>Total: {{ $TotalPrice }}</strong>
+              </div>
+          </div>
+          <hr>
+          <div class="row">
+              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                  <button type="button" class="btn btn-success">Checkout</button>
+              </div>
+          </div>
+      @else
+          <div class="row">
+              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                  <h2>No Items in Cart!</h2>
+              </div>
+          </div>
+      @endif
+  @endsection
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand marg0" href="{{ url('/') }}">
-                        <!--{{ config('app.name', 'Laravel') }} -->
-                       <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
-                    </a> 
-                </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp; 
-                    </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav naavbar-nav navbar-right b3">
-                        <!-- Authentication Links -->
-                         
 
-                        @if (Auth::guest())
-                            <li><a class="btn" href="{{ route('login') }}">Login</a></li>
-                            <li><a class="btn" href="{{ route('register') }}">Register</a></li>
 
-                        @else
 
-                            <li class="dropdown">
-                                <a href="#"  data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                        <a class="btn btn-success " href="/Cart"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Panier  </a>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-</section>
-    <section class="container content-section">
-            <h2 class="section-header">PANIER</h2>
-            <div class="cart-row">
-                <span class="cart-item cart-header cart-column">PRODUIT</span>
-                <span class="cart-price cart-header cart-column">PRIX</span>
-                <span class="cart-quantity cart-header cart-column">QUANTITE</span>
-            </div>
-            <div class="cart-items">
-            </div>
-            <div class="cart-total">
-                <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">0DH</span>
-            </div>
-            <button class="btn btn-primary btn-purchase" type="button">acheter</button>
-        </section>
-       <section class="container content-section">
-            <h2 class="section-header">Informatique</h2>
-            <div class="shop-items">
-                <div class="shop-item">
-                    <span class="shop-item-title">Hp laptop</span>
-                    <img class="shop-item-image" src="https://i.pcmag.com/imagery/roundups/02naaOkVLe7DIiejFUyDPJp-22.jpg">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">12999DH</span>
-                        <button class="btn btn-primary shop-item-button" type="button">ajouter au panier</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <span class="shop-item-title">phone</span>
-                    <img class="shop-item-image" src="https://cdn.vox-cdn.com/thumbor/E8c5U6A_RrsyiwRANmcCLNE2dzc=/0x0:2040x1360/1400x933/filters:focal(860x560:1186x886):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/55855309/akrales_190913_3628_0277.19.jpg">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">4000DH</span>
-                        <button class="btn btn-primary shop-item-button"type="button">ajouter au panier</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <span class="shop-item-title">Mac book Pro</span>
-                    <img class="shop-item-image" src="https://i.pcmag.com/imagery/roundups/02naaOkVLe7DIiejFUyDPJp-31.jpg">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">30000DH</span>
-                        <button class="btn btn-primary shop-item-button" type="button">ajouter au panier</button>
-                    </div>
-                </div>
-            </div></section>
-    </body>
-    <script type="text/javascript">
-      if (document.readyState == 'loading') {
-    document.addEventListener('DOMContentLoaded', ready);
-} else {
-    ready();
-}
 
-function ready() {
-    var removeCartItemButtons = document.getElementsByClassName('btn-danger');
-    for (var i = 0; i < removeCartItemButtons.length; i++) {
-        var button = removeCartItemButtons[i];
-        button.addEventListener('click', removeCartItem);
-    }
 
-    var quantityInputs = document.getElementsByClassName('cart-quantity-input');
-    for (var i = 0; i < quantityInputs.length; i++) {
-        var input = quantityInputs[i];
-        input.addEventListener('change', quantityChanged);
-    }
 
-    var addToCartButtons = document.getElementsByClassName('shop-item-button');
-    for (var i = 0; i < addToCartButtons.length; i++) {
-        var button = addToCartButtons[i];
-        button.addEventListener('click', addToCartClicked);
-    }
 
-    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked);
-}
-
-function purchaseClicked() {
-    alert('Thank you for your purchase');
-    var cartItems = document.getElementsByClassName('cart-items')[0];
-    while (cartItems.hasChildNodes()) {
-        cartItems.removeChild(cartItems.firstChild);
-    }
-    updateCartTotal();
-}
-  /*function to remove the red tn nd its parent liakt includi div ptice the its parent lifih name...*/
-
-function removeCartItem(event) {
-    var buttonClicked = event.target;
-    buttonClicked.parentElement.parentElement.remove();
-    updateCartTotal();
-}
-
-function quantityChanged(event) {
-    var input = event.target;
-    if (isNaN(input.value) || input.value <= 0) {
-        input.value = 1;
-    }
-    updateCartTotal();
-}
-
-function addToCartClicked(event) {
-    var button = event.target;
-    var shopItem = button.parentElement.parentElement;
-    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText;
-    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText;
-    var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src;
-    addItemToCart(title, price, imageSrc);
-    updateCartTotal();
-}
-
-function addItemToCart(title, price, imageSrc) {
-    var cartRow = document.createElement('div')
-    cartRow.classList.add('cart-row')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
-    for (var i = 0; i < cartItemNames.length; i++) {
-        if (cartItemNames[i].innerText == title) {
-            alert('This item is already added to the cart')
-            return
-        }
-    }
-
-    var cartRowContents = `
-        <div class="cart-item cart-column">
-            <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
-            <span class="cart-item-title">${title}</span>
-        </div>
-        <span class="cart-price cart-column">${price}</span>
-        <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1">
-            <button class="btn btn-danger" type="button">SUPPRIMER</button>
-        </div>`;
-    cartRow.innerHTML = cartRowContents;
-    cartItems.append(cartRow);
-    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem);
-    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged);
-}
-
-function updateCartTotal() {
-    var cartItemContainer = document.getElementsByClassName('cart-items')[0];
-    var cartRows = cartItemContainer.getElementsByClassName('cart-row');
-    var total = 0;
-    for (var i = 0; i < cartRows.length; i++) {
-        var cartRow = cartRows[i];
-        var priceElement = cartRow.getElementsByClassName('cart-price')[0];
-        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0];
-        var price = parseFloat(priceElement.innerText.replace('$', ''));
-        var quantity = quantityElement.value;
-        total = total + (price * quantity);
-    }
-    total = Math.round(total * 100) / 100;
-    document.getElementsByClassName('cart-total-price')[0].innerText =  total+"DH";
-}
-    </script>
+  </body>
     </html>

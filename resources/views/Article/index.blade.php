@@ -191,8 +191,14 @@
                                 </ul>
                             </li>
                         @endif
-                        <a class="btn btn-success " href="{{ url('Panier/'.$id_comm) }}"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Panier  </a>
-                        <a href="/article/{{$id_comm}}/create" class=" esp2 btn btn-danger">Ajouter Produit</a>
+                        <li>
+                            <a href="{{ route('product.shoppingCart') }}">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
+                                <span class="badge">{{ Session::has('cart') ? Session::get('cart')->TotalItems : '' }}</span>
+                            </a>
+                        </li>
+
+
                         <a href="/mailUs/{{$id_comm}}" class=" esp2 btn btn-danger">CONTACTEZ-NOUS</a>
                     </ul>
                 </div>

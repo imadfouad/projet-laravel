@@ -3,8 +3,6 @@
 namespace App;
 
 
-use App\Article ;
-use Session ;
 
 Class Product
         {

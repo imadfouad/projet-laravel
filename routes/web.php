@@ -31,11 +31,15 @@ use App\Article;
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-// Cart Thing :
+// Product Thing :
 Route::get('/add-to-cart/{id_comm}/{id_article}','CartController@getAddToCart');
 
 Route::get('articles','CartController@getIndex');
-Route::get('/Cart','ShowArticlesController@index');
+Route::get('Product','ShowArticlesController@index')->name('PanierTest');
+Route::get('/shopping-cart', [
+    'uses' => 'CartController@getCart',
+    'as' => 'product.shoppingCart'
+]);
 
 
 //panier

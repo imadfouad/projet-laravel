@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 use App\Product ;
 use App\Article ;
 
-use Gloudemans\Shoppingcart\Facades\Cart;
 
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests ;
 
 
@@ -64,11 +62,11 @@ class CartController extends Controller
     public function getCart()
     {
         if (!Session::has('cart')) {
-            return view('Cart');
+            return view('shop.shopping-cart');
         }
         $oldCart = Session::get('cart');
-        $cart = new Cart($oldCart);
-        return view('Cart', ['articles' => $cart->items, 'TotalPrice' => $cart->TotalPrice]);
+        $cart = new Product($oldCart);
+        return view('shop.shopping-cart', ['articles' => $cart->items, 'TotalPrice' => $cart->TotalPrice]);
 
     }
     public function getCheckout()
@@ -78,7 +76,7 @@ class CartController extends Controller
             return view ('addToCart');
         }
         $oldCart= Session::get('cart');
-        $cart= new Cart($oldCart);
+        $cart= new Product($oldCart);
         $total=$cart->TotalPrice;
         return view ('Checkout',['total'=>$total]);
     }
