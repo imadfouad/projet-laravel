@@ -403,10 +403,13 @@
                         <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
 
     <input type="button"   class=" btn btn-success transp"  onclick="mafonction({{$article->id_article}});" value="Ajouter au Panier" >
-                        <a href="{{route('product.addToCart',['id'=>$article->id_article])}}">Add to Cart</a>
+
+                        
                         
                         
                     </form>
+
+                    <a href="/add-to-cart/{{ $id_comm }}/{{$article->id_article}}">Add to Cart</a>
 
                     
 

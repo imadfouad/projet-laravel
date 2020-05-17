@@ -44,7 +44,7 @@ class CartController extends Controller
 
 
 
-    public function getAddToCart( Request $request , $id_article)
+    public function getAddToCart( Request $request , $id_comm ,$id_article)
     {
         $article=Article::find($id_article);
         $oldCart = Session :: has('cart') ? Session ::get('cart') : null ;
@@ -56,7 +56,7 @@ class CartController extends Controller
 
 
 
-        return redirect()->route('articles');
+         return redirect()->route('articles',[$id_comm]);
     }
 
 
