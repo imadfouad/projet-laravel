@@ -42,7 +42,7 @@ class CartController extends Controller
 
 
 
-    public function getAddToCart( Request $request , $id_comm ,$id_article)
+    public function getAddToCart( Request $request  ,$id_article)
     {
         $article=Article::find($id_article);
         $oldCart = Session :: has('cart') ? Session ::get('cart') : null ;
@@ -54,7 +54,7 @@ class CartController extends Controller
 
 
 
-         return redirect()->route('articles',[$id_comm]);
+         return redirect()->route('articles');
     }
 
 
@@ -73,12 +73,12 @@ class CartController extends Controller
     {
         if (!Session::has('cart'))
         {
-            return view ('addToCart');
+            return view ('shop.shoppingCart');
         }
         $oldCart= Session::get('cart');
         $cart= new Product($oldCart);
         $total=$cart->TotalPrice;
-        return view ('Checkout',['total'=>$total]);
+        return view ('checkout.index',['total'=>$total]);
     }
 
 

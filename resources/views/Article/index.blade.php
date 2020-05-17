@@ -147,7 +147,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand marg0" href="/welcome/{{ $id_comm }}">
+                    <a class="navbar-brand marg0" href="/welcome">
                         <!--{{ config('app.name', 'Laravel') }} -->
                        <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
                     </a>
@@ -199,7 +199,7 @@
                         </li>
 
 
-                        <a href="/mailUs/{{$id_comm}}" class=" esp2 btn btn-danger">CONTACTEZ-NOUS</a>
+                        <a href="/mailUs" class=" esp2 btn btn-danger">CONTACTEZ-NOUS</a>
                     </ul>
                 </div>
             </div>
@@ -207,7 +207,7 @@
 
 
 <div class="products mrg2">
-    <a href="/welcome/{{$id_comm}}"> <h2 class="text-center" ><strong>Vers la page d'Accueil !</strong> </h2> </a> 
+    <a href="/welcome"> <h2 class="text-center" ><strong>Vers la page d'Accueil !</strong> </h2> </a>
 </div>
 <!--------------------------------Products--------------------------------->
 
@@ -406,16 +406,18 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
                         <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
-                        <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
+                        <input type="hidden" name="id_comm" value="" >
+
+
 
     <input type="button"   class=" btn btn-success transp"  onclick="mafonction({{$article->id_article}});" value="Ajouter au Panier" >
-
-                        
-                        
-                        
                     </form>
+                        
+                        
+                        
 
-                    <a href="/add-to-cart/{{ $id_comm }}/{{$article->id_article}}">Add to Cart</a>
+
+
 
                     
 
@@ -425,7 +427,7 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
                         <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
-                        <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
+                        <input type="hidden" name="id_comm"  >
     
                     </form>
                     
@@ -437,16 +439,18 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-half-o"></i> <br>
+                    <a href="/add-to-cart/{{$article->id_article}}">Add to Cart</a>
                     <h3> {{ $article->nom }}</h3>
                     <h5> {{$article->prix}} $</h5>
+
                     
 
                     <form action="{{ url('articles/'.$article->id_article) }}" method="post">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                         <input type="hidden" value="delete" name="">
-                        <a href="/article/{{$id_comm}}/{{$article->id_article}}" class="btn btn-info">Détails</a>
+                        <a href="/article/{{$article->id_article}}" class="btn btn-info">Détails</a>
                         @can('delete',$article)
 
                         <button type="submit" class="btn btn-danger">Supprimer</button>

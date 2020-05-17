@@ -13,17 +13,17 @@
 
 //checkout Routes
 
-Route::get('/paiement/{total}','CheckoutController@index')->name('checkout.index');
+
 
 Route::get('/success','CheckoutController@indexsuccess');
 
 
 
 //
-Route::get('/Panier/{id_comm}','LigneController@index')->name('Panier');
+Route::get('/Panier/','LigneController@index')->name('Panier');
 
-Route::get('welcome/{id_comm}', 'WelcomeController@index')->name('welcome');
-Route::get('/', 'CommandeController@store')->name('accueil');
+Route::get('welcome', 'WelcomeController@index')->name('welcome');
+Route::get('/', 'WelcomeController@index')->name('accueil');
 
 use App\Commande;
 use App\Article;
@@ -31,8 +31,8 @@ use App\Article;
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-// Product Thing :
-Route::get('/add-to-cart/{id_comm}/{id_article}','CartController@getAddToCart');
+// Product Thing : (session)
+Route::get('/add-to-cart/{id_article}','CartController@getAddToCart');
 
 Route::get('articles','CartController@getIndex');
 Route::get('Product','ShowArticlesController@index')->name('PanierTest');
@@ -40,14 +40,19 @@ Route::get('/shopping-cart', [
     'uses' => 'CartController@getCart',
     'as' => 'product.shoppingCart'
 ]);
+Route::get('/checkout', [
+    'uses' => 'CartController@getCheckout',
+    'as' => 'checkout'
+]);
+
 
 
 //panier
 
 Route::get('/commande','CommandeController@store');
 
-Route::get('ajoutArticle/{id_comm}/pan/{id_article}','LigneController@store');
-Route::get('ajoutArticlee/{id_comm}/pan/{id_article}','LigneController@storee');
+Route::get('ajoutArticle//pan/{id_article}','LigneController@store');
+Route::get('ajoutArticlee/pan/{id_article}','LigneController@storee');
 
 
 // /panier
@@ -59,20 +64,23 @@ Route::get('/ShowOneArticle','ShowArticlesController@index1');
 
 Route::get('articles','WelcomeController@index');
 
-Route::get('articles/{id_comm}','ArticleController@index')->name('articles');
-Route::get('/article/{id_comm}/create','ArticleController@create');
+Route::get('articles','ArticleController@index')->name('articles');
+Route::get('/article/create','ArticleController@create');
 Route::post('/article','ArticleController@store');
 Route::delete('articles/{id_article}','ArticleController@destroy');
 
-Route::get('/article/{id_comm}/{id_article}','ArticleController@show');
+Route::get('/article/{id_article}','ArticleController@show');
+// checkout
+Route::post('/checkout',['uses'=>'CheckoutController@postCheckout',
+    'as'=>'checkout']);
 
 //login for visiteurs
 
 
 
 //mail us route
-Route::get('/mailUs/{id_comm}', function($id_comm){
-	return view('/mailUs',['id_comm' => $id_comm]);
+Route::get('/mailUs', function(){
+	return view('/mailUs');
 });
 
 //les routes de relations n:n

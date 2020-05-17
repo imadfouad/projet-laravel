@@ -109,7 +109,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand marg0" href="/welcome/{{ $id_comm }}">
+                    <a class="navbar-brand marg0" href="#">
                         <!--{{ config('app.name', 'Laravel') }} -->
                        <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
                     </a> 
@@ -124,12 +124,14 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav naavbar-nav navbar-right b3">
                         <!-- Authentication Links -->
-                         <a class="btn btn-success " href="{{ url('Panier/'.$id_comm) }}"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Panier  </a>
+                        <li> <a href="{{ route('product.shoppingCart') }}">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
+                            <span class="badge">{{ Session::has('cart') ? Session::get('cart')->TotalItems : '' }}</span>
+                            </a>
+                        </li>
 
-                       
-
-                        <a href="/article/{{$id_comm}}/create" class=" esp2 btn btn-danger">Ajouter Produit</a>
-                        <a href="/mailUs/{{$id_comm}}" class=" esp2 btn btn-danger">CONTACTEZ-NOUS</a>
+                        <a href="#" class=" esp2 btn btn-danger">Ajouter Produit</a>
+                        <a href="#" class=" esp2 btn btn-danger">CONTACTEZ-NOUS</a>
 
                         @if (Auth::guest())
                             <li><a class="btn" href="{{ route('login') }}">Login</a></li>
@@ -170,7 +172,7 @@
 
 
 <div class="products mrg2">
-    <a href="/articles/{{$id_comm}}"> <h2 class="text-center" ><strong>Vers la page des articles !</strong> </h2> </a> 
+    <a href="{{route('articles')}}"> <h2 class="text-center" ><strong>Vers la page des articles !</strong> </h2> </a>
 </div>
 
 

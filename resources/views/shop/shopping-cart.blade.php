@@ -1,29 +1,38 @@
 
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-
-    <!-- Styles -->
-
+    <title> Articles </title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/test.index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
     <style type="text/css">
-        body {
-            background-color: #E1DFDD;
-            background-size: 100%;
+        body{
+            background-color: #e2e2e2;
         }
+        .marg0{
+            padding-top: 2px;
+            margin: 0;
+            padding-left: 4px;
+        }
+        #logo{
+            height: 60px;
+            width: 45px;
+            margin: 0;
+            padding-bottom: 15px;
+        }
+        #imgprod{
+            height: 250px;
+            width: 250px;
+        }
+
+
         .colo1{
-            background-color: #f5f8fa;
+            background-color: #000f2f;
+
         }
         .marg0{
             padding-top: 2px;
@@ -37,193 +46,180 @@
             padding-bottom: 15px;
 
         }
-
-        .content-section {
-            margin: 1em;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1.5em;
+        .esp2{
+            margin-left: 10px;
         }
-
+        .colo2{
+            background-color: #f7f1f1;
         }
-        .section-header {
-            font-family: "Metal Mania";
-            font-weight: normal;
-            color: #333;
-            text-align: center;
-            font-size: 2.5em;
+        #colo2{
+            background-color: #f8f8f8;
+            padding-left: 350px;
         }
-        .btn {
-            text-align: center;
-            vertical-align: middle;
-            padding: .67em .67em;
-            cursor: pointer;
+        .marg1{
+            margin-top: 30px;
+            margin-left: 420px;
         }
-
-        .btn-primary {
-            color: white;
-            background-color: #56CCF2;
-            border: none;
-            border-radius: .3em;
-            font-weight: bold;
-            margin-left: 25px;
+        .b3{
+            padding-top: 2px;
         }
-
-        .btn-primary:hover {
-            background-color: #2D9CDB;
-        }
-        .shop-item {
-            margin: 30px;
-        }
-
-        .shop-item-title {
-            display: block;
+        #im1{
             width: 100%;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.5em;
-            color: #333;
-            margin-bottom: 15px;
+            height: 480px;
         }
+        .cont{
+            padding-right: 120px;
+            padding-left: 120px;
+        }
+        #car1{
+            height: 170px;
 
-        .shop-item-image {
-            height: 220px;
-            width: 220px;
         }
+        #car2{
+            height: 170px;
         }
-
-        .shop-item-details {
-            display: flex;
-            align-items: center;
-            padding: 5px;
+        .products{
+            background-color: #1B484D;
         }
-
-        .shop-item-price {
-            flex-grow: 1;
-            color: #333;
+        .mrg2{
+            padding-top: 2px;
+            padding-bottom: 7px;
         }
-
-        .shop-items {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+        .feature-box{
+            opacity: ;
         }
-        .cart-header {
-            font-weight: bold;
-            font-size: 1.25em;
-            color: #333;
-        }
-
-        .cart-column {
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid black;
-            margin-right: 1.5em;
-            padding-bottom: 10px;
-            margin-top: 10px;
-        }
-
-        .cart-row {
-            display: flex;
-        }
-
-        .cart-item {
-            width: 45%;
-        }
-
-        .cart-price {
-            width: 20%;
-            font-size: 1.2em;
-            color: #333;
-        }
-
-        .cart-quantity {
-            width: 35%;
-        }
-
-        .cart-item-title {
-            color: #333;
-            margin-left: .5em;
-            font-size: 1.2em;
-        }
-
-        .cart-item-image {
-            width: 75px;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        .btn-danger {
+        .cou1{
             color: white;
-            background-color: #EB5757;
-            border: none;
-            border-radius: .3em;
-            font-weight: bold;
         }
-
-        .btn-danger:hover {
-            background-color: #CC4C4C;
+        .swal2-icon::before{
+            display: none;
         }
-
-        .cart-quantity-input {
-            height: 34px;
-            width: 50px;
-            border-radius: 5px;
-            border: 1px solid #56CCF2;
-            background-color: #eee;
-            color: #333;
-            padding: 0;
-            text-align: center;
-            font-size: 1.2em;
-            margin-right: 25px;
+        #continuer{
+            margin: 20px;
+            padding-left: 15px;
         }
-
-        .cart-row:last-child {
-            border-bottom: 1px solid black;
+        #panier1{
+            margin: 20px;
+            margin-left: 40px;
         }
-
-        .cart-row:last-child .cart-column {
-            border: none;
+        #byd{
+            color: white;
+            padding-left: 20px;
+            margin: 10px;
         }
-
-        .cart-total {
-            text-align: end;
-            margin-top: 10px;
-            margin-right: 10px;
+        #byd1{
+            color: white;
+            padding-left: 20px;
+            margin: 10px;
+            margin-left: 75px;
+            margin-right: 0;
         }
-
-        .cart-total-title {
-            font-weight: bold;
-            font-size: 1.5em;
-            color: black;
-            margin-right: 20px;
+        .mrg2{
+            padding-top: 2px;
+            padding-bottom: 7px;
         }
-
-        .cart-total-price {
-            color: #333;
-            font-size: 1.1em;
+        .products{
+            background-color: #1B484D;
         }
+        .footer{
+            background-color: #2F4F4F;
+            border-top-right-radius:20px;
+            border-top-left-radius:20px;
+            color: white;
 
-        .btn-purchase {
-            display: block;
-            margin: 40px auto 80px auto;
-            font-size: 1.75em;
         }
-
     </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" > </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" > </script>
+
 </head>
 <body>
+<nav class="naavbar navbaar-default navbar-static-top colo1">
+    <div class="container ">
+        <div class="navbar-header">
 
-@section('content')
+            <!-- Collapsed Hamburger -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!---------------Brand image --------->
+            <a class="navbar-brand marg0" href="/welcome/">
+            <!--{{ config('app.name', 'Laravel') }} -->
+                <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
+            </a>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <!-- Left Side Of Navbar -->
+            <ul class="nav navbar-nav">
+                &nbsp;
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="nav naavbar-nav navbar-right b3">
+                <!-- Authentication Links -->
+
+
+                @if (Auth::guest())
+                    <li><a class="btn cou1" href="{{ route('login') }}">Login</a></li>
+                    <li><a class="btn cou1" href="{{ route('register') }}">Register</a></li>
+
+                @else
+
+                    <li class="dropdown">
+                        <a class="btn cou1" href="#"  data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none; ">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+                <li>
+                    <a href="{{ route('product.shoppingCart') }}">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
+                        <span class="badge">{{ Session::has('cart') ? Session::get('cart')->TotalItems : '' }}</span>
+                    </a>
+                </li>
+
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!------------------------------------Cart-thing----------------------------------------->
+
     @if(Session::has('cart'))
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
                 <ul class="list-group">
                     @foreach($articles as $article)
                         <li class="list-group-item">
+
                             <span class="badge">{{ $article['Qty'] }}</span>
+
                              <strong>{{ $article['title'] }}</strong>
                             <span class="label label-success">{{ $article['price'] }}</span>
+
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary btn-xs dropdown-toogle" data-toggle="dropdown">Action <span class="caret"></span></button>
                                 <ul class="dropdown-menu">
@@ -238,13 +234,13 @@
         </div>
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <strong>Total: {{ $TotalPrice }}</strong>
+                <strong>Total: {{ $TotalPrice }} $ </strong>
             </div>
         </div>
         <hr>
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <button type="button" class="btn btn-success">Checkout</button>
+                <a href="{{route('checkout')}}" class="btn btn-success">Checkout</a>
             </div>
         </div>
     @else
@@ -256,6 +252,6 @@
 @endif
 
 
-@endsection
+
 </body>
 </html>
