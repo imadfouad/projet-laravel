@@ -31,7 +31,9 @@ use App\Article;
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+// Cart Thing :
+Route::get('add-to-cart/{id_article}',['uses'=>'CartController@getAddToCart','as'=>'product.addToCart']);
+Route::get('articles','CartController@getIndex');
 Route::get('/Cart','ShowArticlesController@index');
 
 

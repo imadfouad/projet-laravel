@@ -402,7 +402,8 @@
                         <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
                         <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
 
-    <input type="button"   class=" btn btn-success transp"  onclick="mafonction({{$article->id_article}});" value="Ajouter au Panier" >     
+    <input type="button"   class=" btn btn-success transp"  onclick="mafonction({{$article->id_article}});" value="Ajouter au Panier" >
+                        <a href="{{route('product.addToCart',['id'=>$article->id_article])}}">Add to Cart</a>
                         
                         
                     </form>
