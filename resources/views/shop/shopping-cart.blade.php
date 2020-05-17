@@ -303,7 +303,7 @@
     @else
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <h2>No Items in Cart!</h2>
+                <h1 style="margin-left: 110px;margin-top: 200px; font-size: 5em;"><strong>Panier vide !</strong> </h1>
             </div>
         </div>
 @endif
