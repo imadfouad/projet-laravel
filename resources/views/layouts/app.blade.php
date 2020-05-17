@@ -67,7 +67,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand marg0" href="">
+                    <a class="navbar-brand marg0" href="/articles">
                         <!--{{ config('app.name', 'Laravel') }} -->
                        <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
                     </a> 

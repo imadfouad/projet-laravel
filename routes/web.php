@@ -33,13 +33,19 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 // Product Thing : (session)
 Route::get('/add-to-cart/{id_article}','CartController@getAddToCart');
+Route::get('/add-to-carte/{id_article}','CartController@getAddToCartee');
+
+//persistence bdd
+Route::get('/payement','CartController@Payer');
 
 Route::get('articles','CartController@getIndex');
 Route::get('Product','ShowArticlesController@index')->name('PanierTest');
+
 Route::get('/shopping-cart', [
     'uses' => 'CartController@getCart',
     'as' => 'product.shoppingCart'
 ]);
+
 Route::get('/checkout', [
     'uses' => 'CartController@getCheckout',
     'as' => 'checkout'
@@ -65,6 +71,10 @@ Route::get('/ShowOneArticle','ShowArticlesController@index1');
 Route::get('articles','WelcomeController@index');
 
 Route::get('articles','ArticleController@index')->name('articles');
+Route::get('articlestri','ArticleController@indextri');
+
+
+
 Route::get('/article/create','ArticleController@create');
 Route::post('/article','ArticleController@store');
 Route::delete('articles/{id_article}','ArticleController@destroy');

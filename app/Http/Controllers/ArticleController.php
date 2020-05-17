@@ -23,7 +23,36 @@ class ArticleController extends Controller
             'articlesmultis' => $listmulti ]);
     }
 
-    public function create($id_comm){
+    public function indextri(Request $request){
+
+        $min = $request->input('prixmin');
+        $max = $request->input('prixmax');
+        if(empty($min))
+            $min=0;
+        if(empty($max))
+            $max=99999999;
+
+        $listinfo = Article::all()->where('categorie','informatique') 
+                                  ->where('prix' , '>' ,$min)
+                                  ->where('prix' , '<' ,$max);
+                                  
+        $listmulti =  Article::all()->where('categorie','multimédia')
+                                  ->where('prix' , '>' ,$min)
+                                  ->where('prix' , '<' ,$max) ;
+
+        $listdiv =  Article::all()->where('categorie','divers') 
+                                  ->where('prix' , '>' ,$min)
+                                  ->where('prix' , '<' ,$max);
+
+        
+
+        return view('Article.index',['articlesdivs' => $listdiv , 'articlesinfs' => $listinfo, 
+            'articlesmultis' => $listmulti ]);
+    }
+
+
+
+    public function create(){
         if(!Auth::check() || (!Auth::user()->is_admin && Auth::check()) ){   
     	return view('Article.err');
         }

@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
+@if (Auth::guest())
+                                <!----------------------choix-login-register----------------->
+                                <h2 style="color:red ; text-align: center" > Not logged in ! </h2> <hr>
+                                <div style="text-align:center">
+                                    <a class="btn btn-success"  href="{{ route('login') }}">Login</a>
+                                    <a class="btn  btn-success"   href="{{ route('register') }}">Register</a>
+                                </div>
+
+
+
+
 @section('css')
 
 <style type="text/css">
@@ -59,7 +70,7 @@
 					</form>
 	@else
 
-				<a href="/success"  id="#submit" style="margin-top: 40px;margin-left: 100px;" class="btn btn-success mt-4"  >  Procéder au paiement </a>
+				<a href="/payement"  id="#submit" style="margin-top: 40px;margin-left: 100px;" class="btn btn-success mt-4"  >  Procéder au paiement </a>
 					</form>
 	@endif
 			</dir>

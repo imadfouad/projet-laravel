@@ -211,6 +211,11 @@
 </div>
 <!--------------------------------Products--------------------------------->
 
+<form style="margin-left: 400px;margin-top: 20px;" class="form-group container" action="articlestri" method="get">
+    <input class="form-control col-md-2" type="text" name="prixmin" id="prixmin" placeholder="prixmin">
+    <input style="margin-left: 5px;" class="form-control col-md-2" type="text" name="prixmax" id="prixmax" placeholder="prixmax">
+    <input style="margin-left: 20px;" class="btn btn-info" type="submit" name="" value="chercher">
+</form>
 
 <h4 class="heading" id="heading4" tabindex="-1">       Informatique</h4> <hr>
 
@@ -234,7 +239,7 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
                         <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
-                        <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
+                        
 
    <input type="button"   class=" btn btn-success transp"  onclick="mafonction({{$article->id_article}});" value="Ajouter au Panier" > 
     
@@ -258,9 +263,9 @@
               title: 'Produit Ajouté au Panier !',
               icon: 'success',
               showCancelButton: false,
-              html:'<div class="row">' +'<a href="/ajoutArticle/{{$id_comm}}/pan/'+$id+'" class="btn btn-warning"  id="byd"> POURSUIVRE VOS ACHATS</a>'+
+              html:'<div class="row">' +'<a href="/add-to-cart/'+$id+'" class="btn btn-warning"  id="byd"> POURSUIVRE VOS ACHATS</a>'+
                
-               '<a class="btn btn-warning" href="/ajoutArticlee/{{$id_comm}}/pan/'+$id+'" id="byd1" >FINALISER LA COMMANDE</a>'+'</div>',
+               '<a class="btn btn-warning" href="/add-to-carte/'+$id+'" id="byd1" >FINALISER LA COMMANDE</a>'+'</div>',
               showConfirmButton: false,
               width: '40%',
               height: '50%'
@@ -289,7 +294,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-half-o"></i>
-                    <a href="/add-to-cart/{{$article->id_article}}">Add to Cart</a>
+                    
                     <h3> {{ $article->nom }}</h3>
                     <h5> {{$article->prix}} $</h5>
                     
@@ -297,7 +302,7 @@
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                         <input type="hidden" value="delete" name="">
-                        <a href="/article/{{$id_comm}}/{{$article->id_article}}" class="btn btn-info">Détails</a>
+                        <a href="/article/{{$article->id_article}}" class="btn btn-info">Détails</a>
 
                         @can('delete',$article)
 
@@ -337,7 +342,7 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
                         <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
-                        <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
+                        
 
     <input type="button"   class=" btn btn-success transp"  onclick="mafonction({{$article->id_article}});" value="Ajouter au Panier" >     
                         
@@ -352,7 +357,7 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
                         <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
-                        <input type="hidden" name="id_comm" value="{{ $id_comm }}" >
+                        
     
                     </form>
 
@@ -364,7 +369,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-half-o"></i>
-                    <a href="/add-to-cart/{{$article->id_article}}">Add to Cart</a>
+
                     <h3> {{ $article->nom }}</h3>
                     <h5> {{$article->prix}} $</h5>
                     
@@ -372,7 +377,7 @@
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                         <input type="hidden" value="delete" name="">
-                        <a href="/article/{{$id_comm}}/{{$article->id_article}}" class="btn btn-info">Détails</a>
+                        <a href="/article/{{$article->id_article}}" class="btn btn-info">Détails</a>
                         @can('delete',$article)
 
                         <button type="submit" class="btn btn-danger">Supprimer</button>
@@ -442,7 +447,7 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-half-o"></i> <br>
-                    <a href="/add-to-cart/{{$article->id_article}}">Add to Cart</a>
+
                     <h3> {{ $article->nom }}</h3>
                     <h5> {{$article->prix}} $</h5>
 

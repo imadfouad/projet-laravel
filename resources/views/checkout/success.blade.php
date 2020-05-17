@@ -32,6 +32,8 @@
 
 
 @section('content')
+		
+	
 
 <h2 style="text-align: center; color: green; font-size: 4em;font-weight: bold;">Merci pour votre achat !</h2>
 <h3 style="text-align: center">A bientôt !</h3>

@@ -27,10 +27,12 @@ Class Product
                     public function add($item,$id_article)
                 {
                     $StoredItem=[
+                        'id_article' =>$item->id_article,
                         'title'=> $item->nom,
                         'price'=>$item->prix,
                         'Qty' => 0  ,
                         'photo'=> $item->photo ,
+                        'categorie' => $item->categorie,
                     ];
 
                     if ( $this ->items )

@@ -128,6 +128,10 @@
             color: white;
 
         }
+        #imgprod{
+            height: 50px;
+            width: 50px;
+        } 
     </style>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" > </script>
 
@@ -209,10 +213,65 @@
 <!------------------------------------Cart-thing----------------------------------------->
 
     @if(Session::has('cart'))
+
+
+    </style>
+  </head>
+  <body>
+
+
+            <div class="container">
+        
+                  <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col"></th>
+                            
+                            <th scope="col">Nom du Produit</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Prix</th>
+                            <th scope="col">Quantité</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                                  <input type="hidden" name="" value="{{$total=0}}"> 
+                                   <input type="hidden" name="" value="{{$i=1}}"> 
+                  
+                          
+
+                          
+
+                  
+
+                      
+
+                          @foreach($articles as $article)  
+                               
+                              <tr>
+                                <th scope="row">{{ $i++ }}</th>
+                                <td>{{$article['title']}}</td>
+                                <td><img id="imgprod" src="{{ asset('storage/'.$article['photo']) }}" class="pro-1" ></td>
+                                <td>{{$article['price']}} DH</td>
+                                <td>{{$article['Qty']}} </td>
+                              </tr>
+                          @endforeach   
+                      
+
+                    
+                        </tbody>
+                  </table>
+
+                  
+                      
+
+                  
+              </div>
+    <!--
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
                 <ul class="list-group">
                     @foreach($articles as $article)
+
                         <li class="list-group-item">
 
                             <span class="badge">{{ $article['Qty'] }}</span>
@@ -227,22 +286,20 @@
                                     <li><a href="#">Reduce All</a></li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> 
                     @endforeach
                 </ul>
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <strong>Total: {{ $TotalPrice }} $ </strong>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                <h2> <strong>Total: {{ $TotalPrice }} $ </strong> </h2> 
                 <a href="{{route('checkout')}}" class="btn btn-success">Checkout</a>
             </div>
         </div>
+        <hr>
+        
+
     @else
         <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
@@ -251,7 +308,12 @@
         </div>
 @endif
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>

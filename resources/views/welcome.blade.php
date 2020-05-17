@@ -130,8 +130,8 @@
                             </a>
                         </li>
 
-                        <a href="#" class=" esp2 btn btn-danger">Ajouter Produit</a>
-                        <a href="#" class=" esp2 btn btn-danger">CONTACTEZ-NOUS</a>
+                        <a href="/article/create" class=" esp2 btn btn-danger">Ajouter Produit</a>
+                        <a href="/mailUs" class=" esp2 btn btn-danger">CONTACTEZ-NOUS</a>
 
                         @if (Auth::guest())
                             <li><a class="btn" href="{{ route('login') }}">Login</a></li>

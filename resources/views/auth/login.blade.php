@@ -110,7 +110,7 @@
                     </form>
 
 
-                    <button style="margin-left: 250px;" id="clk" onclick="mafct();" class="btn btn-info">Accéder au site autant que Visiteur </button>
+                    
 
 <script type="text/javascript">
 var i = 0;

@@ -127,7 +127,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand marg0" href="/welcome/{{ $id_comm }}">
+                    <a class="navbar-brand marg0" href="/welcome">
                         <!--{{ config('app.name', 'Laravel') }} -->
                        <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
                     </a>  
@@ -170,8 +170,8 @@
                                 </ul>
                             </li>
                         @endif
-                        <a class="btn btn-success " href="{{ url('Panier/'.$id_comm) }}"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Panier  </a>
-                        <a href="/article/{{$id_comm}}/create" class=" esp2 btn btn-danger">Ajouter Produit</a>    
+                        <a class="btn btn-success " href="/shopping-cart"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Panier  </a>
+                        <a href="/article/create" class=" esp2 btn btn-danger">Ajouter Produit</a>    
 
                     </ul>
                 </div>
