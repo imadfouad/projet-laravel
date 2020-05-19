@@ -89,6 +89,10 @@ Route::post('/checkout',['uses'=>'CheckoutController@postCheckout',
 
 
 //mail us route
+Route::get('/sendemail','SendEmailController@index');
+
+Route::post('/sendemail/send','SendEmailController@send');
+
 Route::get('/mailUs', function(){
 	return view('/mailUs');
 });
