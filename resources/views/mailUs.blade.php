@@ -23,6 +23,67 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <style type="text/css">
+          body {
+            background-color: white;
+            background-size: 100%;
+        }
+        .colo1{
+            background-color: #f5f8fa;
+        }
+        .marg0{
+            padding-top: 2px;
+            margin: 0;
+        }
+
+        #logo{
+            height: 60px;
+                width: 45px;
+                margin: 0;
+                padding-bottom: 15px;
+                
+        }
+        .colo2{
+            background-color: #f8f8f8;
+        }
+        #colo2{
+            background-color: #f8f8f8;
+            padding-left: 350px;            
+        }
+        .marg1{
+            margin-top: 30px;
+            margin-left: 420px;
+        }
+        .b3{
+            padding-top: 2px;
+        }
+        #im1{
+            width: 100%;
+            height: 480px;
+        }
+        .cont{
+            padding-right: 120px;
+            padding-left: 120px;
+        }
+        #car1{
+            height: 170px;
+            
+        }
+        #car2{
+            height: 170px;
+        }
+        .products{
+            background-color: #1B484D;
+        }
+        .mrg2{
+            padding-top: 2px;
+            padding-bottom: 7px;
+        }
+        .feature-box{
+            opacity: ;
+        }
+        .esp2{
+            margin-left: 10px;
+        }
    .box{
     width:600px;
     margin:0 auto;
@@ -43,6 +104,86 @@
   </style>
  </head>
  <body>
+  <div id="app">
+        <nav class="naavbar navbaar-default navbar-static-top colo1">
+            <div class="container ">
+                <div class="navbar-header">
+
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- Branding Image -->
+                    <a class="navbar-brand marg0" href="#">
+                        <!--{{ config('app.name', 'Laravel') }} -->
+                       <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
+                    </a> 
+                </div>
+
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp; 
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav naavbar-nav navbar-right b3">
+                        <!-- Authentication Links -->
+                        <li> <a href="{{ route('product.shoppingCart') }}">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
+                            <span class="badge">{{ Session::has('cart') ? Session::get('cart')->TotalItems : '' }}</span>
+                            </a>
+                        </li>
+
+                        <a href="/article/create" class=" esp2 btn btn-danger">Ajouter Produit</a>
+                        <a href="/mailUs" class=" esp2 btn btn-danger">CONTACTEZ-NOUS</a>
+
+                        @if (Auth::guest())
+                            <li><a class="btn" href="{{ route('login') }}">Login</a></li>
+                            <li><a class="btn" href="{{ route('register') }}">Register</a></li>
+
+                        @else
+
+                            <li class="dropdown">
+                                <a href="#"  data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                        
+
+                        
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+<div class="products mrg2">
+    <a href="{{route('articles')}}"> <h2 class="text-center" ><strong>Vers la page des articles !</strong> </h2> </a>
+</div>
+
   <br />
   <div class="container box">
    @if (count($errors) > 0)

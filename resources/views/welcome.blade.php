@@ -24,7 +24,7 @@
     <style type="text/css">
         
         body {
-            background-color: #E1DFDD;
+            background-color: white;
             background-size: 100%;
         }
         .colo1{
