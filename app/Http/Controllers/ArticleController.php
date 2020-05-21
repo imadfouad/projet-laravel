@@ -101,8 +101,8 @@ class ArticleController extends Controller
 
     }
 
-    public function show($id_comm , $id_article) {
+    public function show($id_article) {
         $article = Article::find($id_article);
-        return view('Article.show',['article' => $article , 'id_comm' => $id_comm]);
+        return view('Article.show',['article' => $article ]);
   }
 }

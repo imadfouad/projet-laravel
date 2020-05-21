@@ -83,7 +83,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand marg0" href="/welcome/{{ $id_comm }}">
+                    <a class="navbar-brand marg0" href="/welcome">
                         <!--{{ config('app.name', 'Laravel') }} -->
                        <img id="logo" src="https://i.ibb.co/86zL9J2/icone-ordinateur.png">
                     </a>
@@ -141,33 +141,33 @@
     
 
                         <script type="text/javascript">
+        
+                            function mafonction($id){
                                 
-                                function mafonction($id){
-                                    
-                                    Swal.fire({         
-                                      title: 'Produit Ajouté au Panier !',
-                                      icon: 'success',
-                                      showCancelButton: false,
-                                      html:'<div class="row">' +'<a href="/ajoutArticle/{{$id_comm}}/pan/'+$id+'" class="btn btn-warning"  id="byd"> POURSUIVRE VOS ACHATS</a>'+
-                                       
-                                       '<a class="btn btn-warning" href="/ajoutArticlee/{{$id_comm}}/pan/'+$id+'" id="byd1" >FINALISER LA COMMANDE</a>'+'</div>',
-                                      showConfirmButton: false,
-                                      width: '40%',
-                                      height: '50%'
-                                    }).then((result) => {
-                                      if (result.value) {
-                                        Swal.fire(
-                                          'Deleted!',
-                                          'Your file has been deleted.',
-                                          'success'
-                                        )
-                                      }
-                                    })
+                                Swal.fire({         
+                                  title: 'Produit Ajouté au Panier !',
+                                  icon: 'success',
+                                  showCancelButton: false,
+                                  html:'<div class="row">' +'<a href="/add-to-cart/'+$id+'" class="btn btn-warning"  id="byd"> POURSUIVRE VOS ACHATS</a>'+
+                                   
+                                   '<a class="btn btn-warning" href="/add-to-carte/'+$id+'" id="byd1" >FINALISER LA COMMANDE</a>'+'</div>',
+                                  showConfirmButton: false,
+                                  width: '40%',
+                                  height: '50%'
+                                }).then((result) => {
+                                  if (result.value) {
+                                    Swal.fire(
+                                      'Deleted!',
+                                      'Your file has been deleted.',
+                                      'success'
+                                    )
+                                  }
+                                })
 
-                                }
-                                
+                            }
+                            
 
-                            </script>
+                        </script>
 
               </div>
             </div>

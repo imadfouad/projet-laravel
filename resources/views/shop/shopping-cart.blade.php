@@ -251,7 +251,7 @@
                                 <th scope="row">{{ $i++ }}</th>
                                 <td>{{$article['title']}}</td>
                                 <td><img id="imgprod" src="{{ asset('storage/'.$article['photo']) }}" class="pro-1" ></td>
-                                <td>{{$article['price']}} DH</td>
+                                <td>{{$article['price']}} $</td>
                                 <td>{{$article['Qty']}} </td>
                               </tr>
                           @endforeach   
