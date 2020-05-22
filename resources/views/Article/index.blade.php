@@ -234,7 +234,7 @@
                     
                     <span class="product-trend-label">20% OFF</span>
                 
-                    <h3>{{print($article->id_article)}}</h3> 
+                    
                     
                     <form class="social" action="{{ url('ajoutArticle/'.$article->id_article) }} " method="post" id="sub">
                         {{ csrf_field() }}
