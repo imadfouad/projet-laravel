@@ -119,23 +119,28 @@
 
   <div class="form-group">
     <label for="formGroupExampleInput">Nom de l'Article :</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" name="nom" placeholder="Nom de l'Article">
+    <input required type="text" class="form-control" id="formGroupExampleInput" name="nom" placeholder="Nom de l'Article">
   </div>
 
   <div class="form-group">
     <label for="formGroupExampleInput">Prix :</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" name="prix" placeholder="Prix en DH">
+    <input required type="text" class="form-control" id="formGroupExampleInput" name="prix" placeholder="Prix en DH">
   </div>
 
   <div class="form-group">
     <label for="formGroupExampleInput2">Catégorie :</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" name="categorie" placeholder="Informatique / Multimédia / Divers">
+    <select required type="select" class="form-control" id="formGroupExampleInput2" name="categorie">
+        <option value="informatique">informatique</option>
+        <option value="divers">divers</option>
+        <option value="multimédia">multimédia</option>
+    </select>
+
   </div>
 
   
   <div class="form-group" >
     <label for="">Image de l'article :</label>
-    <input type="file" class="form-control-file" name="photo" >
+    <input type="file" required class="form-control-file" name="photo" >
   </div>
 
   <div class="form-group">
