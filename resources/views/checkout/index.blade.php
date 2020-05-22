@@ -58,38 +58,32 @@
         <div class="row">
             <dir class="col-md-6 tk">
                 
+              <form method="get" action="/payement" id="payment-form" class="my-4" >
+
                 <div class="form-group mx-sm-3 mb-2">
-                    <label for="inputPassword2" class="sr-only">Adresse de Livraison</label>
-                    <input type="text" class="form-control" id="inputPassword2" placeholder="Adresse de Livraison">
+                    <label for="inputPassword2"  class="sr-only">Adresse de Livraison</label>
+                    <input required type="text" class="form-control" id="inputPassword2" placeholder="Adresse de Livraison">
                   </div>
                 
                 <div class="form-group mx-sm-3 mb-2">
                     <label for="inputPassword2" class="sr-only">Nom du Compte</label>
-                    <input type="text" class="form-control" id="inputPassword2" placeholder="Nom du compte">
+                    <input required type="text" class="form-control" id="inputPassword2" placeholder="Nom du compte">
                   </div>
 
-                    <form id="payment-form" class="my-4" >
+                    
                       <div  id="card-element">
                         <!-- Elements will create input elements here -->
                       </div>
 
                       <!-- We'll put the error messages in this element -->
                       <div  id="card-errors" role="alert"></div>
-    @if(Auth::user()->name == "visiteur")
+    
+    
 
-                    <a  href="/logout"   id="#submit" style="margin-top: 40px;margin-left: 80px;" class="btn btn-danger mt-4"  >  Cliquez içi pour se connecter </a>
-
-                    <div style="margin-top: 20px;" class="alert alert-danger" role="alert">
-                      Vous devez vous connecter pour acceder au payement !
-                    </div>
+                <input type="submit" id="#submit" style="margin-top: 40px;margin-left: 100px;" class="btn btn-success mt-4" value="Procéder au paiement">   
 
                     </form>
-    @else
-
-                <a href="/payement"  id="#submit" style="margin-top: 40px;margin-left: 100px;" class="btn btn-success mt-4"  >  Procéder au paiement </a>
-
-                    </form>
-    @endif
+    
             </dir>
             
         </div>

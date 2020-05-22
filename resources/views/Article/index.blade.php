@@ -238,7 +238,7 @@
                     <form class="social" action="{{ url('ajoutArticle/'.$article->id_article) }} " method="post" id="sub">
                         {{ csrf_field() }}
                         <input type="hidden" name="id_article" value="{{ $article->id_article }}" >
-                        <input type="hidden" name="prix_unit" value="{{ $article->prix }}" >
+                        <input type="hidden" name="prix_unit"  value="{{ $article->prix }}" >
                         
 
    <input type="button"   class=" btn btn-success transp"  onclick="mafonction({{$article->id_article}});" value="Ajouter au Panier" > 
