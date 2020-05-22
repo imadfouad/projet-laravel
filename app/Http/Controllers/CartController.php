@@ -7,19 +7,18 @@ use App\Commande;
 use Session;
 
 use Auth;
-use Stripe\Charge;
+
 
 use Illuminate\Http\Request;
 use App\Http\Requests ;
 use Illuminate\Support\Arr;
-use Stripe\Stripe ;
 
 
 
 class CartController extends Controller
 {
     /**
-     * Display a listing of the ressource.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -98,19 +97,17 @@ class CartController extends Controller
 
     public function payer(Request $request)
     {
-        if (!Session::has('cart')) {
-            return redirect()->route('shop.shopping-cart');
-        }
-        //Commande
+        //commande
         $Commande = new Commande();
         $Commande->user_id = Auth::user()->id;
         $Commande->save();
+
         $id_comm = $Commande->id_comm;
 
+        //ligne
         $oldCart = Session::get('cart');
+        
         $cart = new Product($oldCart);
-
-        Stripe::setApiKey('sk_test_mI9xXr7eVa1yrPww1GGUQH1C00srbRgC5T');
         $arts = $cart->items;
 
         foreach($arts as $art)
@@ -122,21 +119,10 @@ class CartController extends Controller
 
             $Commande->articles()->attach($article , ['quantite'=>$art['Qty'],'prix_unit'=>$art['price']]);
         }
-        try {
-            Charge::create(array(
-                "amount" => $cart->TotalPrice * 100,
-                "currency" => "usd",
-                "source" => "tok_visa",
-                "description" => "Test Charge",
-
-
-            ));
-        } catch (\Exception $e) {
-            return redirect()->route('checkout')->with('error', $e->getMessage());
-        }
 
         Session::forget('cart');
-        return redirect()->route('articles',['arts'=>$arts])->with('success', 'Successfully purchased products!');
+
+        return view('checkout.success',['arts'=>$arts]);
     }
 
 
@@ -161,9 +147,18 @@ class CartController extends Controller
         }
         $oldCart= Session::get('cart');
         $cart= new Product($oldCart);
-        $total= $cart->TotalPrice;
 
-        return view ('checkout.index',['total'=>$total  ]);
+        \Stripe\Stripe::setApiKey('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+
+        $intent = \Stripe\PaymentIntent::create([
+          'amount' => $cart->TotalPrice*100,
+          'currency' => 'usd'  
+        ]);
+
+        $clientSecret = Arr::get($intent, 'client_secret'); 
+
+        $total=$cart->TotalPrice;
+        return view ('checkout.index',['total'=>$total , 'clientSecret' => $clientSecret ]);
     }
 
 
