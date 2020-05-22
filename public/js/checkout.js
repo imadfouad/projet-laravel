@@ -1,1 +1,0 @@
-Stripe.setPublishableKey('pk_test_HCXv2k3kUGUjykdGOhBgXKFG00iP0W01io');

@@ -1,15 +1,19 @@
 @extends('layouts.app')
 
 
-
-
-
 @section('css')
 
+
+
+
+
 <style type="text/css">
+
+
+
     .ff{
         background-color: #efefef;
-        margin-top: : 50px;
+        margin-top: 50px;
 
     }
     .f{
@@ -24,7 +28,6 @@
         padding-left: 300px;
         margin-top: 180px;
         margin-bottom: 107px;
-
     }
     #submit{
         margin-left: 100px;
@@ -35,8 +38,13 @@
 @endsection
 
 @section('extra-script')
-<script src="https://js.stripe.com/v3/"></script>
+    <script src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 @endsection
+
+
+
+
 
 @section('content')
     
@@ -57,116 +65,50 @@
         <h1 style="text-align: center;">Page de paiement {{ Auth::user()->id }}</h1>
         <div class="row">
             <dir class="col-md-6 tk">
-                
-              <form id="payment-form" class="my-4" >
-
-                <div class="form-group mx-sm-3 mb-2">
+                <div id="charge-error" class="alert alert-danger {{ !Session::has('error') ? 'hidden' : ''  }}">
+                    {{ Session::get('error') }}
+                </div>
+              <form  method="post"  action="/payement"   id="checkout-form" >
+               <div class="form-group mx-sm-3 mb-2">
                     <label for="inputPassword2"  class="sr-only">Adresse de Livraison</label>
                     <input required type="text" class="form-control" id="inputPassword2" placeholder="Adresse de Livraison">
                   </div>
-                
                 <div class="form-group mx-sm-3 mb-2">
-                    <label for="inputPassword2" class="sr-only">Nom du Compte</label>
-                    <input required type="text" class="form-control" id="inputPassword2" placeholder="Nom du compte">
+                    <label for="inputPassword2"  class="sr-only">Nom du Compte</label>
+                    <input required type="text" class="form-control" id="Card-name" placeholder="Nom du compte">
                   </div>
+                  <div class="form-group mx-sm-3 mb-2">
+                      <label for="card-number" class="sr-only"> Card number </label>
+                      <input required type="text" class="form-control" id="card-number" placeholder="Card number">
+                  </div>
+                  <div class="form-group mx-sm-3 mb-2">
+                      <label for="card-cvc" class="sr-only"> CVC </label>
+                      <input required type="text" class="form-control" id="card-cvc" placeholder="cvc">
+                  </div>
+                  <div class="form-group mx-sm-3 mb-2">
+                      <label for="card-expiration" class="sr-only"> Expiration date </label>
+                      <input required type="text" class="form-control" id="card-expiry" placeholder="MM/YY">
+                  </div>
+                  {{csrf_field()}}
+                  <button type="submit" class="btn btn-success" >Procèder au paiement</button>
 
-                    
-                      <div  id="card-element">
-                        <!-- Elements will create input elements here -->
-                      </div>
 
-                      <!-- We'll put the error messages in this element -->
-                      <div  id="card-errors" role="alert"></div>
-    
-    
 
-                <a href="/payement" onclick="fct();"  id="#submit" style="margin-top: 40px;margin-left: 100px;" class="btn btn-success mt-4"  >  Procéder au paiement </a>
 
-                    </form>
+              </form>
     
             </dir>
             
         </div>
     </div>
     <div class="ff"><br><br><p> . </p><br><br><br></div>
-    
-
     @endif
-    
+@endsection
+@section('extra-script')
+
+
+
+    <script type="text/javascript" src="src/js/checkout.js"></script>
 
 @endsection
 
-@section('extra-js')
-<script>
-    var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
-    var elements = stripe.elements();
-
-    var style = {
-        base: {
-          color: "#32325d",
-          fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-          fontSmoothing: "antialiased",
-          fontSize: "16px",
-          "::placeholder": {
-            color: "#aab7c4"
-          }
-        },
-        
-      };
-      var card = elements.create("card", { 'style': {
-                                                'base': {
-                                                  'fontFamily': 'Arial, sans-serif',
-                                                  
-                                                  'color': '#C1C7CD',
-                                                  'textAlign' : 'center'
-                                                },
-                                                'invalid': {
-                                                  'color': 'red',
-                                                },
-                                              } });
-
-        card.mount("#card-element");
-
-
-    card.addEventListener('change', ({error}) => {
-      const displayError = document.getElementById('card-errors');
-      if (error) {
-        displayError.classList.add('alert','alert-warning');
-        displayError.textContent = error.message;
-      } else {
-        displayError.classList.remove('alert','alert-warning');
-        displayError.textContent = '';
-        
-                
-      }
-    });
-
-    var form = document.getElementById('payment-form');
-
-        form.addEventListener('submit', function(ev) {
-          ev.preventDefault();
-          stripe.confirmCardPayment("{{$clientSecret}}", {
-            payment_method: {
-              card: card
-              
-            }
-          }).then(function(result) {
-            if (result.error) {
-              // Show error to your customer (e.g., insufficient funds)
-              console.log(result.error.message);
-            } else {
-              // The payment has been processed!
-              if (result.paymentIntent.status === 'succeeded') {
-                // Show a success message to your customer
-                // There's a risk of the customer closing the window before callback
-                // execution. Set up a webhook or plugin to listen for the
-                // payment_intent.succeeded event that handles any business critical
-                // post-payment actions.
-
-              }
-            }
-          });
-        });
-
-</script>
-@endsection

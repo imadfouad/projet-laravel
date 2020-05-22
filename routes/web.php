@@ -36,7 +36,7 @@ Route::get('/add-to-cart/{id_article}','CartController@getAddToCart');
 Route::get('/add-to-carte/{id_article}','CartController@getAddToCartee');
 
 //persistence bdd
-Route::get('/payement','CartController@payer');
+Route::post('/payement','CartController@payer');
 
 Route::get('articles','CartController@getIndex');
 Route::get('Product','ShowArticlesController@index')->name('PanierTest');
