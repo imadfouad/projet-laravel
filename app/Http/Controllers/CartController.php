@@ -19,7 +19,7 @@ use Stripe\Stripe ;
 class CartController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the ressource.
      *
      * @return \Illuminate\Http\Response
      */
