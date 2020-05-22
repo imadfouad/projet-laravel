@@ -58,7 +58,7 @@
         <div class="row">
             <dir class="col-md-6 tk">
                 
-              <form method="get" action="/payement" id="payment-form" class="my-4" >
+              <form id="payment-form" class="my-4" >
 
                 <div class="form-group mx-sm-3 mb-2">
                     <label for="inputPassword2"  class="sr-only">Adresse de Livraison</label>
@@ -80,7 +80,7 @@
     
     
 
-                <input type="submit" id="#submit" style="margin-top: 40px;margin-left: 100px;" class="btn btn-success mt-4" value="Procéder au paiement">   
+                <a href="/payement" onclick="fct();"  id="#submit" style="margin-top: 40px;margin-left: 100px;" class="btn btn-success mt-4"  >  Procéder au paiement </a>
 
                     </form>
     
