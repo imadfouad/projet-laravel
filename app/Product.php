@@ -32,6 +32,7 @@ Class Product
                         'price'=>$item->prix,
                         'Qty' => 0  ,
                         'photo'=> $item->photo ,
+                        'item' => $item,
                         'categorie' => $item->categorie,
                     ];
 
@@ -49,7 +50,20 @@ Class Product
                     $this ->TotalPrice += $item -> prix ;
                 }
 
+                public function reduceByOne($item , $id_article){
 
+                    $StoredItem=$this->items[$id_article];
+                    $StoredItem['Qty']--;
+                    $StoredItem['price'] = $item->prix * $StoredItem['Qty'];
+                    $this->items[$id_article]=$StoredItem;
+                    $this->TotalItems --;
+                    $this->TotalPrice-= $item -> prix;
+
+                    if($this->items[$id_article]['Qty'] <= 0){
+                        unset($this->items[$id_article]);
+                    }
+                    
+                }
 
 
 

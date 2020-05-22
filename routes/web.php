@@ -84,6 +84,9 @@ Route::get('/article/{id_article}','ArticleController@show');
 Route::post('/checkout',['uses'=>'CheckoutController@postCheckout',
     'as'=>'checkout']);
 
+Route::get('/reduce/{id}',[
+	'uses' =>'CartController@getReduceByOne',
+	'as' => 'product.reduceByOne'	]);
 //login for visiteurs
 
 

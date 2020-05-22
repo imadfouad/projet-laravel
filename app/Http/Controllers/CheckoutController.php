@@ -23,11 +23,13 @@ class CheckoutController extends Controller
         \Stripe\Stripe::setApiKey('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
         $intent = \Stripe\PaymentIntent::create([
-          'amount' => $total,
-          'currency' => 'MAD'  
+          'amount' => $total*100,
+          'currency' => 'usd'  
         ]);
 
         $clientSecret = Arr::get($intent, 'client_secret'); 
+
+
 
         return view('checkout.index',['clientSecret' => $clientSecret ,'total' => $total ]);
     }
@@ -36,6 +38,9 @@ class CheckoutController extends Controller
 
 
     public function indexsuccess(){
+        $oldCart= Session::get('cart');
+        $cart= new Product($oldCart);
+        Session::forget('cart');
         return view('checkout.success');
     }
 

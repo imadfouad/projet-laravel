@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Product ;
 use App\Article ;
 use App\Commande;
+use Session;
+
 use Auth;
 
 
@@ -12,7 +14,7 @@ use App\Http\Requests ;
 use Illuminate\Support\Arr;
 
 
-use Session ;
+
 class CartController extends Controller
 {
     /**
@@ -79,6 +81,20 @@ class CartController extends Controller
         
     }
 
+    public function getReduceByOne($id_article){
+        $article=Article::find($id_article);
+        $oldCart = Session :: has('cart') ? Session ::get('cart') : null ;
+        $cart = new Product($oldCart) ;
+        $cart->reduceByOne($article , $id_article);
+
+        if(count($cart->items) > 0){
+        Session::put('cart',$cart);
+        }else{
+            Session::forget('cart');
+        }
+        return view('shop.shopping-cart', ['articles' => $cart->items, 'TotalPrice' => $cart->TotalPrice]);
+    }
+
     public function payer(Request $request)
     {
         //commande
@@ -103,6 +119,8 @@ class CartController extends Controller
 
             $Commande->articles()->attach($article , ['quantite'=>$art['Qty'],'prix_unit'=>$art['price']]);
         }
+
+        Session::forget('cart');
 
         return view('checkout.success',['arts'=>$arts]);
     }
@@ -133,8 +151,8 @@ class CartController extends Controller
         \Stripe\Stripe::setApiKey('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
         $intent = \Stripe\PaymentIntent::create([
-          'amount' => $cart->TotalPrice,
-          'currency' => 'MAD'  
+          'amount' => $cart->TotalPrice*100,
+          'currency' => 'usd'  
         ]);
 
         $clientSecret = Arr::get($intent, 'client_secret'); 
@@ -201,6 +219,22 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $cart= Session::get('cart');
+        
+        $arts = $cart->items;
+           foreach ($arts as $art)
+           {
+               if ($art['id_article'] == $id) 
+               {                
+                   unset($cart[$art['id']]);
+                   break;
+               }
+           }
+
+           //put back in session array without deleted item
+           
+           //then you can redirect or whatever you need
+           return view('shop.shopping-cart', ['articles' => $cart->items, 'TotalPrice' => $cart->TotalPrice]);
     }
 }

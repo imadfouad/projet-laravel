@@ -133,6 +133,7 @@
             width: 50px;
         } 
     </style>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" > </script>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" > </script>
@@ -231,6 +232,7 @@
                             <th scope="col">Image</th>
                             <th scope="col">Prix</th>
                             <th scope="col">Quantité</th>
+                            <th scope="col">Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -253,6 +255,7 @@
                                 <td><img id="imgprod" src="{{ asset('storage/'.$article['photo']) }}" class="pro-1" ></td>
                                 <td>{{$article['price']}} $</td>
                                 <td>{{$article['Qty']}} </td>
+                                <td><a href="/reduce/{{$article['id_article']}}"><i style="color: red;padding-left: 10px;width: 40px;" class="far fa-trash-alt"></i></a></td>
                               </tr>
                           @endforeach   
                       
@@ -310,7 +313,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/js/all.min.js"></script>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
