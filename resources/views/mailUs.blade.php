@@ -205,7 +205,7 @@
    <form method="post" action="{{url('sendemail/send')}}">
     {{ csrf_field() }}
     <div class="form-group">
-     <label>Entre votr nom</label>
+     <label>Nom Complet</label>
      <input type="text" name="name" class="form-control" value="" />
     </div>
     <div class="form-group">
@@ -217,7 +217,7 @@
      <textarea name="message" class="form-control"></textarea>
     </div>
     <div class="form-group">
-     <input type="submit" name="send" class="btn btn-info" value="envoyer" />
+     <input type="submit" name="send" class="btn btn-info" value="Envoyer" />
     </div>
    </form>
    

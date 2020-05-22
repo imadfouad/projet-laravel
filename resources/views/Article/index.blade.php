@@ -232,7 +232,7 @@
                         <img id="imgprod" src="{{ asset('storage/'.$article->photo) }}" class="pro-1" >
 
                     
-                    <span class="product-trend-label">20% OFF</span>
+                    
                 
                     
                     
@@ -291,11 +291,7 @@
 
                 </div>
                 <div class="product-content">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
+                    
                     
                     <h3> {{ $article->nom }}</h3>
                     <h5> {{$article->prix}} $</h5>
@@ -338,7 +334,6 @@
                         <img id="imgprod" src="{{ asset('storage/'.$article->photo) }}" class="pro-1" >
 
                     </a>
-                    <span class="product-trend-label">20% OFF</span>
 
                     <form class="social" action="{{ url('ajoutArticle/'.$article->id_article) }}" method="post" id="sub">
                         {{ csrf_field() }}
@@ -366,11 +361,7 @@
 
                 </div>
                 <div class="product-content">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
+                    
 
                     <h3> {{ $article->nom }}</h3>
                     <h5> {{$article->prix}} $</h5>
@@ -409,7 +400,7 @@
                     <a href="">
                         <img id="imgprod" src="{{ asset('storage/'.$article->photo) }}" class="pro-1" >
                     </a>
-                    <span class="product-trend-label">20% OFF</span>
+                    
 
                     <form class="social" action="{{ url('ajoutArticle/'.$article->id_article) }}" method="post" id="sub">
                         {{ csrf_field() }}
@@ -444,11 +435,7 @@
 
                 </div>
                 <div class="product-content">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i> <br>
+                    
 
                     <h3> {{ $article->nom }}</h3>
                     <h5> {{$article->prix}} $</h5>
