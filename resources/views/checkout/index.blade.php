@@ -59,6 +59,7 @@
 
 </style>
 
+
 @endsection
 
 @section('extra-script')
@@ -98,25 +99,30 @@
                   </div>
 
                     
-                      <form >
-                        <div class="form-row">
-                          <label for="card-element">
-                            Credit or debit card
-                          </label>
-                          <div id="card-element">
-                            <!-- A Stripe Element will be inserted here. -->
-                          </div>
+                      <div  id="card-element">
+                        <!-- Elements will create input elements here -->
+                      </div>
 
-                          <!-- Used to display form errors. -->
-                          <div id="card-errors" role="alert"></div>
-                        </div>
-
-                        <button id="#submit" style="margin-top: 40px;margin-left: 100px;" class="btn btn-success mt-4">Procéder au paiement</button>
-                      </form>
+                      <!-- We'll put the error messages in this element -->
+                      <div  id="card-errors" role="alert"></div>
     
     
 
-                
+                <form action="/payement" method="get" id="payment-form">
+                  <div class="form-row">
+                    <label for="card-element">
+                      Credit or debit card
+                    </label>
+                    <div id="card-element">
+                      <!-- A Stripe Element will be inserted here. -->
+                    </div>
+
+                    <!-- Used to display form errors. -->
+                    <div id="card-errors" role="alert"></div>
+                  </div>
+
+                  <button id="#submit" style="margin-top: 40px;margin-left: 100px;" class="btn btn-success mt-4">Submit Payment</button>
+                </form>
 
                     </form>
     
@@ -126,7 +132,6 @@
     </div>
     <div class="ff"><br><br><p> . </p><br><br><br></div>
     
-    pk_test_TYooMQauvdEDq54NiTphI7jx
 
     @endif
     
@@ -135,8 +140,7 @@
 
 @section('extra-js')
 <script>
-    // Create a Stripe client.
-var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+    var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 // Create an instance of Elements.
 var elements = stripe.elements();
@@ -187,6 +191,7 @@ form.addEventListener('submit', function(event) {
       errorElement.textContent = result.error.message;
     } else {
       // Send the token to your server.
+      
       stripeTokenHandler(result.token);
     }
   });
@@ -200,10 +205,12 @@ function stripeTokenHandler(token) {
   hiddenInput.setAttribute('type', 'hidden');
   hiddenInput.setAttribute('name', 'stripeToken');
   hiddenInput.setAttribute('value', token.id);
-  
+  form.appendChild(hiddenInput);
 
   // Submit the form
   form.submit();
 }
 </script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
 @endsection

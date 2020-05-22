@@ -208,7 +208,7 @@
 
 
 <div class="products mrg2">
-    <a href="/welcome"> <h2 class="text-center" ><strong>Vers la page d'Accueil !</strong> </h2> </a>
+    <a href="/welcome"> <h2 class="text-center" ><strong>Accueil </strong> </h2> </a>
 </div>
 <!--------------------------------Products--------------------------------->
 
@@ -217,7 +217,15 @@
     <input style="margin-left: 5px;" class="form-control col-md-2" type="text" name="prixmax" id="prixmax" placeholder="prixmax">
     <input style="margin-left: 20px;" class="btn btn-info" type="submit" name="" value="chercher">
 </form>
-
+@if(Session::has('success'))
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+            <div id="charge-message" class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+        </div>
+    </div>
+@endif
 <h4 class="heading" id="heading4" tabindex="-1">       Informatique</h4> <hr>
 
 <div class="container">
