@@ -18,7 +18,6 @@
 Route::get('/success','CheckoutController@indexsuccess');
 
 
-
 //
 Route::get('/Panier/','LigneController@index')->name('Panier');
 
@@ -88,6 +87,12 @@ Route::get('/reduce/{id}',[
 	'uses' =>'CartController@getReduceByOne',
 	'as' => 'product.reduceByOne'	]);
 //login for visiteurs
+
+
+//mail
+Route::get('send2','mailcontroller@send2');
+
+
 
 
 
