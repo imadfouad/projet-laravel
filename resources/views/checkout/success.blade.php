@@ -36,7 +36,9 @@
 	
 
 <h2 style="text-align: center; color: green; font-size: 4em;font-weight: bold;">Merci pour votre achat !</h2>
+<h4 style="text-align: center">Num de votre commande : {{$id_comm}}</h4>
 <h3 style="text-align: center">A bientôt !</h3>
+
 		
 		<div class="ff"><br><br><p> . </p><br><br><br></div>
 		<div class="ff"><br><br><p> . </p><br><br><br></div>

@@ -120,9 +120,12 @@ class CartController extends Controller
             $Commande->articles()->attach($article , ['quantite'=>$art['Qty'],'prix_unit'=>$art['price']]);
         }
 
+        Session::put('id_comm', $id_comm);
+
         Session::forget('cart');
 
-        return view('checkout.success',['arts'=>$arts]);
+        return redirect()->route('mail',[$id_comm ]);
+        
     }
 
 

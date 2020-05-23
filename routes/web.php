@@ -27,6 +27,7 @@ Route::get('/', 'WelcomeController@index')->name('accueil');
 
 use App\Commande;
 use App\Article;
+use App\Mail\Maill;
 
 Auth::routes();
 
@@ -51,7 +52,7 @@ Route::get('/checkout', [
     'as' => 'checkout'
 ]);
 
-
+Route::get('send', 'mailController@send')->name('mail');
 
 //panier
 

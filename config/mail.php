@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'sendmail'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'imadfouad48@gmail.com'),
+        'name' => env('Admin', 'Client'),
     ],
 
     /*
@@ -98,6 +98,7 @@ return [
     | of the emails. Or, you may simply stick with the Laravel defaults!
     |
     */
+    'sendmail' => '/usr/sbin/sendmail -bs',
 
     'markdown' => [
         'theme' => 'default',
