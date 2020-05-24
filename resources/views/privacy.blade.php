@@ -4,6 +4,7 @@
 <head>
   <title></title>
 </head>
+
 <body>
 
 <h1>Privacy Policy</h1>
