@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+      <h1> Yay</h1>
     
     
     <!-- Styles -->
@@ -234,6 +235,7 @@
                           </li>
                       @endforeach
                   </ul>
+                  <h1> Test</h1>
               </div>
           </div>
           <div class="row">

@@ -3,20 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Mail ;
+use Mail;
+
 use App\Product ;
 use App\Article ;
 use App\Commande;
-use Auth;
 use Session;
-use function foo\func;
+
+use Auth;
 
 
-class mailcontroller extends Controller
+
+use App\Http\Requests ;
+use Illuminate\Support\Arr;
+
+
+class mailController extends Controller
 {
-    public function send2()
-    {
-        Mail::send(['text'=>'mail'],['name','AjiTchri'],function($message){
+    public function send(){
+
+    	
+
+    	Mail::send(['text'=>'mail'],['name','Imad'],function($message){
     		$mail = Auth::user()->email;
     		$message->to($mail,'to Client')->subject("Confirmation d'achat");
     		$message->from('imadfouad48@gmail.com','Imad');
@@ -30,5 +38,5 @@ class mailcontroller extends Controller
         $id_comm = Session::get('id_comm');
 
     	return view('checkout.success',['arts'=>$arts , 'id_comm' => $id_comm]);
-
-}}
+    }
+}

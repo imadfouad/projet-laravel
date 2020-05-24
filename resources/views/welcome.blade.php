@@ -14,7 +14,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Accueil</title>
-    
+    <h1> Test </h1>
     
     <!-- Styles -->
     
