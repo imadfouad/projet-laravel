@@ -51,7 +51,7 @@ Route::get('/checkout', [
     'as' => 'checkout'
 ]);
 
-Route::get('send', 'mailController@send2')->name('mail');
+Route::get('send', 'mailController@send')->name('mail');
 
 //panier
 

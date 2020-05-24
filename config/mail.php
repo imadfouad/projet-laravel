@@ -1,7 +1,7 @@
 <?php
 
+return [
 
-return[
     /*
     |--------------------------------------------------------------------------
     | Mail Driver
@@ -16,11 +16,7 @@ return[
     |
     */
 
-
     'driver' => env('MAIL_DRIVER', 'sendmail'),
-    'driver' => env('mailgun', 'smtp'),
-
-
 
     /*
     |--------------------------------------------------------------------------
@@ -60,7 +56,7 @@ return[
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'imadfouad48@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'ourpro45@gmail.com'),
         'name' => env('Admin', 'Client'),
     ],
 
@@ -110,6 +106,6 @@ return[
         'paths' => [
             resource_path('views/vendor/mail'),
         ],
-    ]
+    ],
 
 ];

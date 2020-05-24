@@ -24,10 +24,10 @@ class mailController extends Controller
 
     	
 
-    	Mail::send(['text'=>'mail'],['name','Imad'],function($message){
+    	Mail::send(['text'=>'mail'],['name','AjiTchri'],function($message){
     		$mail = Auth::user()->email;
     		$message->to($mail,'to Client')->subject("Confirmation d'achat");
-    		$message->from('imadfouad48@gmail.com','Imad');
+    		$message->from('ourpro45@gmail.com','AjiTchri');
     	});
 
     	$oldCart = Session::get('cart');
