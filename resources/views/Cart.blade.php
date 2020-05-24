@@ -235,7 +235,7 @@
                           </li>
                       @endforeach
                   </ul>
-                  <h1> Test</h1>
+
               </div>
           </div>
           <div class="row">
