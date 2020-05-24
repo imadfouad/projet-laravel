@@ -16,7 +16,7 @@ class mailcontroller extends Controller
 {
     public function send2()
     {
-        Mail::send(['text'=>'mail'],['name','Imad'],function($message){
+        Mail::send(['text'=>'mail'],['name','AjiTchri'],function($message){
     		$mail = Auth::user()->email;
     		$message->to($mail,'to Client')->subject("Confirmation d'achat");
     		$message->from('imadfouad48@gmail.com','Imad');
