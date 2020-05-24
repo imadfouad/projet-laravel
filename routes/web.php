@@ -94,8 +94,12 @@ Route::get('/reduce/{id}',[
 Route::get('send2','mailcontroller@send2');
 
 
-
-
+Route::get('/about', function(){
+	return view('/about');
+});
+Route::get('/privacy', function(){
+	return view('/privacy');
+});
 
 //mail us route
 Route::get('/sendemail','SendEmailController@index');

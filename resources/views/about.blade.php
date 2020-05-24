@@ -91,8 +91,11 @@
             color: white; 
 
         }
-
-    </style>
+        .head1 { text-align: center; color: black; font-size: 34px; font-weight: 400; }
+        .ContainerThreeColumn-content {
+            font-size: 20px;
+            text-align:center;
+        }   </style>
 </head>
 <body>
     <div id="app">
@@ -174,35 +177,41 @@
 <div class="products mrg2">
     <a href="{{route('articles')}}"> <h2 class="text-center" ><strong>Vers la page des articles !</strong> </h2> </a>
 </div>
+<div class="aboutUs">
+    <p class="head1">À propos de nous</p>
 
 
-    <div class="container cont">
-        <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active" data-interval="10000">
-              <img id="im1" src="https://i.ibb.co/3WPcm8w/ps4-listing-thumb-01-ps4-eu-06sep16.png" class="d-block w-100" alt="...">
+    <div class="ContainerThreeColumn-content">
+        
+        <div class="ContainerThreeColumn-columns">
+            <div class="ColumnOne">
+                <span class="mood-color">
+                    <div class="ContainerThreeColumn-description">
+                        Dans notre site, nous nous impliquons et nous investissons dans le développement durable, car pour nous cela n'a que des avantages : c'est bon pour nos activités, la planète, nos clients et nos communautés.
+                    </div>
+                </span>
+                
+                    
+            <div class="mood-color">
+                <div class="PromoImageOnTop-small-description">« Shipment zero » est le programme de notre site qui vise à atteindre une empreinte carbone neutre pour toutes ses livraisons, avec un objectif de neutralité carbone pour la moitié des livraisons Amazon d'ici 2030.</div>
             </div>
-            <div class="carousel-item" data-interval="2000">
-              <img id="im1" src="https://i.ibb.co/gwm2xxc/imageonline-co-transparentimage-1-1.png" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img id="im1" src="https://i.ibb.co/5RnPzMz/imageonline-co-transparentimage-2.png" class="d-block w-100" alt="...">
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-    </div>
-<br><br> 
+            <ul>
+                <li>
+                    
 
+    Créé en mai 2020, storeweb est le site e-commerce dont l’objectif et la vision sont de fournir le plus large assortiment au meilleur prix pour tous les Marocains.
 
-
+                </li>
+                <li>
+                      Le site web storeweb est incontestablement est une nouvelle destination de shopping en ligne au Maroc, 
+    
+   
+                </li>
+                <li> Le délai de livraison moyen est de 1 à 5 jours.</li>
+            </ul>
+                </div></div></div>
+    
+</div>
 <div class="footer">
         <div class="container">
             <div class="col-md-3 w3_footer_grid">
@@ -215,7 +224,7 @@
                 <h3>policy info</h3>
                 <ul class="w3_footer_grid_list">
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">privacy policy</a></li>
+                    <li><a href="privacy">privacy policy</a></li>
                     <li><a href="#">terms of use</a></li>
                 </ul>
             </div>
@@ -255,13 +264,4 @@
             </div>
         </div>
     </div>
-
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-</html>
+</body></html>

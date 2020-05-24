@@ -229,24 +229,25 @@
             <div class="col-md-3 w3_footer_grid">
                 <h3>information</h3>
                 <ul class="w3_footer_grid_list">
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="about">About Us</a></li>
                 </ul>
             </div>
             <div class="col-md-3 w3_footer_grid">
                 <h3>policy info</h3>
                 <ul class="w3_footer_grid_list">
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">privacy policy</a></li>
+                    <li><a href="privacy">privacy policy</a></li>
                     <li><a href="#">terms of use</a></li>
                 </ul>
             </div>
-            <div class="col-md-3 w3_footer_grid">
+             <div class="col-md-3 w3_footer_grid">
                 <h3>important links</h3>
                 <ul class="w3_footer_grid_list">
-                    <li><a >acceuil</a></li>
-                    <li><a >login</a></li>
-                    <li><a >register</a></li>
-                    <li><a >articles</a></li>
+                    <li><a href="welcome" >Acceuil</a></li>
+                    <li><a href="login">Login</a></li>
+                    <li><a href="register">Register</a></li>
+                    <li><a href="articles">Articles</a></li>
+                    <li><a href="/shopping-cart">Panier</a></li>
                 </ul>
             </div>
               <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">

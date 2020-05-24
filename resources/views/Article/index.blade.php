@@ -477,14 +477,14 @@
             <div class="col-md-3 w3_footer_grid">
                 <h3>information</h3>
                 <ul class="w3_footer_grid_list">
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="about">About Us</a></li>
                 </ul>
             </div>
             <div class="col-md-3 w3_footer_grid">
                 <h3>policy info</h3>
                 <ul class="w3_footer_grid_list">
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">privacy policy</a></li>
+                    <li><a href="privacy">privacy policy</a></li>
                     <li><a href="#">terms of use</a></li>
                 </ul>
             </div>
